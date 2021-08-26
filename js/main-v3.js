@@ -176,9 +176,25 @@ function changeTableHeader(){
 }
 
 function copyStats(){
-  let copyText = document.querySelector("#copyMe")
-  copyText.select()
-  document.execCommand("Copy")
-  console.log(document.execCommand("Paste"))
+  let body = document.body, range, sel;
+  let theTable = document.getElementById("stepsTableBody")
+	
+  if (document.createRange && window.getSelection) {
+		range = document.createRange();
+		sel = window.getSelection();
+		sel.removeAllRanges();
+		try {
+			range.selectNodeContents(theTable);
+			sel.addRange(range);
+		} catch (e) {
+			range.selectNode(theTable);
+			sel.addRange(range);
+		}
+	} else if (body.createTextRange) {
+		range = body.createTextRange();
+		range.moveToElementText(theTable);
+		range.select();
+	}
+  range.execCommand("Copy")
 }
 
