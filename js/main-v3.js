@@ -8,7 +8,7 @@ document.querySelector('#btnSetPrevDate').addEventListener('click', () => dateUp
 document.querySelector('#btnSetNextDate').addEventListener('click', () => dateUpdate('n'))
 document.querySelector('#inpDate').addEventListener('change', () => dateUpdate('s'))
 document.querySelector('#tglDisplay').addEventListener('click', changeTableHeader)
-document.querySelector('#btnCopy').addEventListener('click', copyStats)
+// document.querySelector('#btnCopy').addEventListener('click', copyStats)
 
 
 //FUNCTIONS
@@ -175,26 +175,43 @@ function changeTableHeader(){
   }
 }
 
-function copyStats(){
-  let body = document.body, range, sel;
-  let theTable = document.getElementById("stepsTableBody")
+// function copyStats(){
+//   let body = document.body, range, sel;
+//   let theTable = document.getElementById("stepsTableBody")
 	
-  if (document.createRange && window.getSelection) {
-		range = document.createRange();
-		sel = window.getSelection();
-		sel.removeAllRanges();
-		try {
-			range.selectNodeContents(theTable);
-			sel.addRange(range);
-		} catch (e) {
-			range.selectNode(theTable);
-			sel.addRange(range);
-		}
-	} else if (body.createTextRange) {
-		range = body.createTextRange();
-		range.moveToElementText(theTable);
-		range.select();
-	}
-  range.execCommand("Copy")
-}
+//   if (document.createRange && window.getSelection) {
+// 		range = document.createRange();
+// 		sel = window.getSelection();
+// 		sel.removeAllRanges();
+// 		try {
+// 			range.selectNodeContents(theTable);
+// 			sel.addRange(range);
+// 		} catch (e) {
+// 			range.selectNode(theTable);
+// 			sel.addRange(range);
+// 		}
+// 	} else if (body.createTextRange) {
+// 		range = body.createTextRange();
+// 		range.moveToElementText(theTable);
+// 		range.select();
+// 	}
+// }
 
+var copyBtn = document.querySelector('#btnCopy');
+copyBtn.addEventListener('click', function () {
+  console.log("Hi 1");
+  var urlField = document.querySelector('#testTable');
+  console.log(urlField);
+  // create a Range object
+  var range = document.createRange();  
+  console.log(range);
+  // set the Node to select the "range"
+  range.selectNode(urlField);
+  console.log(range);
+  // add the Range to the set of window selections
+  window.getSelection().addRange(range);
+   
+  // execute 'copy', can't 'cut' in this case
+  document.execCommand('copy');
+  console.log("Hi 2");
+}, false);
