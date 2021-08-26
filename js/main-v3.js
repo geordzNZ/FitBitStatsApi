@@ -8,6 +8,7 @@ document.querySelector('#btnSetPrevDate').addEventListener('click', () => dateUp
 document.querySelector('#btnSetNextDate').addEventListener('click', () => dateUpdate('n'))
 document.querySelector('#inpDate').addEventListener('change', () => dateUpdate('s'))
 document.querySelector('#tglDisplay').addEventListener('click', changeTableHeader)
+document.querySelector('#btnCopy').addEventListener('click', copyStats)
 
 
 //FUNCTIONS
@@ -173,3 +174,11 @@ function changeTableHeader(){
 
   }
 }
+
+function copyStats(){
+  let copyText = document.querySelector("#copyMe")
+  copyText.select()
+  document.execCommand("Copy")
+  console.log(document.execCommand("Paste"))
+}
+
