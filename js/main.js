@@ -50,13 +50,25 @@ function displaySteps(data){
   stepsTotal.innerText = data['activities-steps'][0]['value']
 
   console.log(dataLength)
-  for (let i=0;i<dataLength;i++){
-    let div = document.createElement("div");
-    // for (let j=0;j<15;j++){
-      // div.innerHTML = 'Time Part: ' + stepsData[i+j].time + '  -  ' + stepsData[i+j].value + ' steps'
-      div.innerHTML = 'Time Part: ' + stepsData[i].time + '  -  ' + stepsData[i].value + ' steps'
+
+  // for (let i=0; i<60; i++){
+  //   let div = document.createElement("div")
+  //   div.innerHTML = i + ':  Time Part: ' + stepsData[i].time + '  -  ' + stepsData[i].value + ' steps'
+  //   stepsBreakdown.appendChild(div)
+  // }
+
+
+  for (let i=0; i<dataLength; i+=15){
+    //console.log(i)
+    let div = document.createElement("div")
+    let stepCtr = 0
+    for (let j=i; j<i+15; j++){
+      //console.log('  --',j)
+      stepCtr += stepsData[j].value
+      
+      div.innerHTML = `Time Part: ${stepsData[i].time} to ${stepsData[j+1].time}  = ${stepCtr} -- ${j}`
       stepsBreakdown.appendChild(div)
-    // }
+    }
   }
 }
 
