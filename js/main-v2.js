@@ -68,7 +68,7 @@ function displaySteps(data){
     let d = step15MinTotals[i+3]
     stepsOutput.push({q0: a, q1: b, q2: c, q3: d, total: a+b+c+d})
   }
-//console.log(stepsOutput)
+  //console.log(stepsOutput)
 
   for (let i=0; i<stepsOutput.length-1; i++){
     let tRow = document.createElement("tr")
@@ -92,12 +92,8 @@ function displaySteps(data){
     tRow.appendChild(tCell4)
     tRow.appendChild(tCell5)
     tRow.appendChild(tCell6)
-    console.log(i,tRow)
-
 
     stepsTableBody.appendChild(tRow)
-    //stepsNewTable.appendChild(tRow)
-
   }
 
 
