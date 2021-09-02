@@ -40,24 +40,21 @@ function getTodaySteps(){
 }
 
 function displaySteps(data){
-  // console.log(data['activities-steps-intraday']['dataset'].length)
-  // console.log(data['activities-steps-intraday']['dataset'][0])
-  // console.log(data['activities-steps-intraday']['dataset'][1])
-  // console.log(data['activities-steps-intraday']['dataset'][2])
-  // console.log(data['activities-steps-intraday']['dataset'][3])
-  // console.log(data['activities-steps-intraday']['dataset'][3]['time'])
-  // console.log(data['activities-steps-intraday']['dataset'][3]['value'])
-  // document.querySelector('#stepsTotal').innerText = data['activities-steps'][0]['value']
-  // document.querySelector('#stepsBreakdown').innerText = data['activities-steps-intraday']['dataset'].length
+  console.log(data)
 
-  let dataLength = data['activities-steps-intraday']['dataset'].length
+  let stepsData = data['activities-steps-intraday']['dataset']
+  let dataLength = stepsData.length
   let stepsTotal = document.getElementById("stepsTotal");
   let stepsBreakdown = document.getElementById("stepsBreakdown");
 
-  for (let i=0;i<dataLength;i++){
+  stepsTotal.innerText = data['activities-steps'][0]['value']
+
+  for (let i=0;i<dataLength;i+15){
     let div = document.createElement("div");
-    div.innerHTML = 'Time Part: ' + data['activities-steps-intraday']['dataset'][i].time + '  -  ' + data['activities-steps-intraday']['dataset'][i].value + ' steps'
-    stepsBreakdown.appendChild(div);
+    for (let j=0;j<15;j++){
+      div.innerHTML = 'Time Part: ' + stepsData[i+j].time + '  -  ' + stepsData[i+j].value + ' steps'
+      stepsBreakdown.appendChild(div)
+    }
   }
 }
 
