@@ -36,15 +36,29 @@ function getTodaySteps(){
     headers: {"Authorization": "Bearer " + access_token}
   })
   .then(response => response.json())
-  //.then(json => console.log(json))
-  .then(json => {
-    console.log(json['activities-steps-intraday']['dataset'][1]['value'])
-    document.querySelector('#steps').innerHTML = json['activities-steps'][0]['value']
-  })
+  .then(data => displaySteps(data))
+}
 
-  // Put Data on the Page
-  //console.log(res)
-  //document.querySelector('#steps').innertext = json.
+function displaySteps(data){
+  // console.log(data['activities-steps-intraday']['dataset'].length)
+  // console.log(data['activities-steps-intraday']['dataset'][0])
+  // console.log(data['activities-steps-intraday']['dataset'][1])
+  // console.log(data['activities-steps-intraday']['dataset'][2])
+  // console.log(data['activities-steps-intraday']['dataset'][3])
+  // console.log(data['activities-steps-intraday']['dataset'][3]['time'])
+  // console.log(data['activities-steps-intraday']['dataset'][3]['value'])
+  // document.querySelector('#stepsTotal').innerText = data['activities-steps'][0]['value']
+  // document.querySelector('#stepsBreakdown').innerText = data['activities-steps-intraday']['dataset'].length
+
+  let dataLength = data['activities-steps-intraday']['dataset'].length
+  let stepsTotal = document.getElementById("stepsTotal");
+  let stepsBreakdown = document.getElementById("stepsBreakdown");
+
+  for (let i=0;i<dataLength;i++){
+    let div = document.createElement("div");
+    div.innerHTML = 'Time Part: ' + data['activities-steps-intraday']['dataset'][i].time + '  -  ' + data['activities-steps-intraday']['dataset'][i].value + ' steps'
+    stepsBreakdown.appendChild(div);
+  }
 }
 
 function getDevices(){
