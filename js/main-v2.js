@@ -40,13 +40,12 @@ function displaySteps(data){
   //HTML Elements
   let stepsTotal = document.getElementById("stepsTotal")
   let stepsDate = document.getElementById("stepsDate")
-  let stepsBreakdown = document.getElementById("stepsBreakdown")
   let stepsTableBody = document.getElementById("stepsTableBody")
-  
+
   console.log(data)
 
   //Work with data on the page
-  stepsBreakdown.innerText = ''
+  stepsTableBody.innerText = ""
   stepsTotal.innerText = data['activities-steps'][0].value
   stepsDate.innerText = data['activities-steps'][0].dateTime
 
@@ -72,16 +71,13 @@ function displaySteps(data){
 //console.log(stepsOutput)
 
   for (let i=0; i<stepsOutput.length-1; i++){
-    // let myDiv = document.createElement("div")
-    // myDiv.innerHTML = `${i<10 ? '0'+i : i} - ${i+1<10 ? '0'+(i+1) : i+1} = ${stepsOutput[i].q0} / ${stepsOutput[i].q1} / ${stepsOutput[i].q2} / ${stepsOutput[i].q3}  =  ${stepsOutput[i].total}`
-    
     let tRow = document.createElement("tr")
     let tCell1 = document.createElement("td")
     let tCell2 = document.createElement("td")
     let tCell3 = document.createElement("td")
     let tCell4 = document.createElement("td")
     let tCell5 = document.createElement("td")
-    let tCell6= document.createElement("td")
+    let tCell6 = document.createElement("td")
     
     tCell1.innerText = `${i<10 ? '0'+i : i}--${i+1<10 ? '0'+(i+1) : i+1}`
     tCell2.innerText = stepsOutput[i].q0
@@ -96,10 +92,11 @@ function displaySteps(data){
     tRow.appendChild(tCell4)
     tRow.appendChild(tCell5)
     tRow.appendChild(tCell6)
-
+    console.log(i,tRow)
 
 
     stepsTableBody.appendChild(tRow)
+    //stepsNewTable.appendChild(tRow)
 
   }
 
