@@ -5,8 +5,10 @@ const access_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMkM4Vk4iLCJzdWIiOiIyQ0pHS
 //Button Listeners
 // document.querySelector('#btnAuth').addEventListener('click', getAuth)
 document.querySelector('#btnProfile').addEventListener('click', getProfile)
-document.querySelector('#btnTodaySteps').addEventListener('click', getTodaySteps)
 document.querySelector('#btnDevices').addEventListener('click', getDevices)
+document.querySelector('#btnTodaySteps').addEventListener('click', getTodaySteps)
+document.querySelector('#btnPastSteps1').addEventListener('click', getPastSteps1)
+document.querySelector('#btnPastSteps2').addEventListener('click', getPastSteps2)
 
 // function getAuth(){
 //   //Get Data
@@ -31,6 +33,16 @@ function getProfile(){
 
 function getTodaySteps(){
   let res = ''
+  fetch('https://api.fitbit.com/1/user/-/activities/steps/date/today/1d.json',{
+    method: "GET",
+    headers: {"Authorization": "Bearer " + access_token}
+  })
+  .then(response => response.json())
+  .then(data => displaySteps(data))
+}
+
+function getPastSteps1(){
+  let res = ''
   fetch('https://api.fitbit.com/1/user/-/activities/steps/date/2021-09-02/1d.json',{
     method: "GET",
     headers: {"Authorization": "Bearer " + access_token}
@@ -39,24 +51,31 @@ function getTodaySteps(){
   .then(data => displaySteps(data))
 }
 
+function getPastSteps2(){
+  let res = ''
+  fetch('https://api.fitbit.com/1/user/-/activities/steps/date/2021-08-31/1d.json',{
+    method: "GET",
+    headers: {"Authorization": "Bearer " + access_token}
+  })
+  .then(response => response.json())
+  .then(data => displaySteps(data))
+}
+
+
 function displaySteps(data){
   console.log(data)
 
   let stepsData = data['activities-steps-intraday']['dataset']
   let dataLength = stepsData.length
-  let stepsTotal = document.getElementById("stepsTotal");
-  let stepsBreakdown = document.getElementById("stepsBreakdown");
+  let stepsTotal = document.getElementById("stepsTotal")
+  let stepsDate = document.getElementById("stepsDate")
+  let stepsBreakdown = document.getElementById("stepsBreakdown")
 
-  stepsTotal.innerText = data['activities-steps'][0]['value']
+  if (stepsBreakdown.innerText!='') { stepsBreakdown.innerText = '' }
+  stepsTotal.innerText = data['activities-steps'][0].value
+  stepsDate.innerText = data['activities-steps'][0].dateTime
 
   console.log(dataLength)
-
-  // for (let i=0; i<60; i++){
-  //   let div = document.createElement("div")
-  //   div.innerHTML = i + ':  Time Part: ' + stepsData[i].time + '  -  ' + stepsData[i].value + ' steps'
-  //   stepsBreakdown.appendChild(div)
-  // }
-
 
   for (let i=0; i<dataLength; i+=15){
     //console.log(i)
