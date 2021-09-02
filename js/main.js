@@ -51,10 +51,11 @@ function displaySteps(data){
 
   for (let i=0;i<dataLength;i+15){
     let div = document.createElement("div");
-    for (let j=0;j<15;j++){
-      div.innerHTML = 'Time Part: ' + stepsData[i+j].time + '  -  ' + stepsData[i+j].value + ' steps'
+    // for (let j=0;j<15;j++){
+      // div.innerHTML = 'Time Part: ' + stepsData[i+j].time + '  -  ' + stepsData[i+j].value + ' steps'
+      div.innerHTML = 'Time Part: ' + stepsData[i].time + '  -  ' + stepsData[i].value + ' steps'
       stepsBreakdown.appendChild(div)
-    }
+    // }
   }
 }
 
