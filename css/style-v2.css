@@ -59,7 +59,7 @@ table{
   border-collapse:collapse;
 }
 thead {
-  background: lightgray;
+  background: blue;
   border-bottom: 1px black solid;
 }
 td{
@@ -70,6 +70,8 @@ tr:nth-child(7) {
   border-bottom: 1px black solid;
 }
 tr:nth-child(18) {
-  border-bottom: 1px black solid;
+  border-bottom: 5px black solid;
 }
-
+td:nth-child(1) {
+  font-weight: bold;
+}
