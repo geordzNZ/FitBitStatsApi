@@ -31,7 +31,7 @@ function getProfile(){
 
 function getTodaySteps(){
   let res = ''
-  fetch('https://api.fitbit.com/1/user/-/activities/steps/date/today/1d.json',{
+  fetch('https://api.fitbit.com/1/user/-/activities/steps/date/2021-09-02/1d.json',{
     method: "GET",
     headers: {"Authorization": "Bearer " + access_token}
   })
@@ -49,7 +49,8 @@ function displaySteps(data){
 
   stepsTotal.innerText = data['activities-steps'][0]['value']
 
-  for (let i=0;i<dataLength;i+15){
+  console.log(dataLength)
+  for (let i=0;i<dataLength;i++){
     let div = document.createElement("div");
     // for (let j=0;j<15;j++){
       // div.innerHTML = 'Time Part: ' + stepsData[i+j].time + '  -  ' + stepsData[i+j].value + ' steps'
