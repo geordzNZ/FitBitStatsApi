@@ -45,10 +45,11 @@ span {
 }
 
 #stepsBreakdown{
-  background: lightgoldenrodyellow;
+  background: yellowgreen;
   width: 50%;
   text-align: center;
-  margin: 0 auto;
+  margin: 0px auto;
+padding: 10px;
 }
 
 table{
@@ -79,5 +80,6 @@ td:nth-child(1) {
 }
 td:nth-child(6) {
   font-weight: bold;
-  border-left: 1px black solid;;
+  border-left: 1px black solid;
+  background: yellow;
 }
