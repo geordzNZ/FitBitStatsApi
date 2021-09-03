@@ -1,4 +1,6 @@
-const access_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMkM4Vk4iLCJzdWIiOiIyQ0pHSEQiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJhY3QgcnNldCBybG9jIHJ3ZWkgcmhyIHJwcm8gcm51dCByc2xlIiwiZXhwIjoxNjMyOTM5MjE1LCJpYXQiOjE2MzAzNDg2NzJ9.f1iyj9s0pAfA_SoQHWCLnz4Rp-QZWOsBbpUfM94UMcs"
+import { myName, myAddr, accessToken} from './shhh.js'
+
+//const access_token = "used to go here"
 
 
 //Button Listeners
@@ -21,13 +23,10 @@ document.querySelector('#btnPastSteps2').addEventListener('click', getPastSteps2
 
 
 function getProfile(){
-  import { myName } from './shhh';
-  let val = myName;
-  console.log(val);
-
+  // console.log(myName,myAddr)
   fetch('https://api.fitbit.com/1/user/-/profile.json',{
     method: "GET",
-    headers: {"Authorization": "Bearer " + access_token}
+    headers: {"Authorization": "Bearer " + accessToken}
   })
   .then(response => response.json())
   .then(json => console.log(json))
@@ -39,7 +38,7 @@ function getTodaySteps(){
   let res = ''
   fetch('https://api.fitbit.com/1/user/-/activities/steps/date/today/1d.json',{
     method: "GET",
-    headers: {"Authorization": "Bearer " + access_token}
+    headers: {"Authorization": "Bearer " + accessToken}
   })
   .then(response => response.json())
   .then(data => displaySteps(data))
@@ -49,7 +48,7 @@ function getPastSteps1(){
   let res = ''
   fetch('https://api.fitbit.com/1/user/-/activities/steps/date/2021-09-02/1d.json',{
     method: "GET",
-    headers: {"Authorization": "Bearer " + access_token}
+    headers: {"Authorization": "Bearer " + accessToken}
   })
   .then(response => response.json())
   .then(data => displaySteps(data))
@@ -59,7 +58,7 @@ function getPastSteps2(){
   let res = ''
   fetch('https://api.fitbit.com/1/user/-/activities/steps/date/2021-08-31/1d.json',{
     method: "GET",
-    headers: {"Authorization": "Bearer " + access_token}
+    headers: {"Authorization": "Bearer " + accessToken}
   })
   .then(response => response.json())
   .then(data => displaySteps(data))

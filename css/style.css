@@ -51,6 +51,6 @@ span {
   text-align: center;
   margin: 0 auto;
 }
-div:nth-child(4n+0) {
-  border-bottom: black dotted 1px;
+#stepsBreakdown>div:nth-child(4n+0) {
+  border-bottom: green dotted 5px;
 }
