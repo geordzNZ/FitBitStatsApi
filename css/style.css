@@ -22,7 +22,7 @@
 /*******************************************/
 
 body {
-
+  text-align: center
 }
 
 
@@ -43,4 +43,14 @@ footer {
 
 span {
   font-weight: bold;
+}
+
+#stepsBreakdown{
+  background: lightgoldenrodyellow;
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
+div:nth-child(4n+0) {
+  border-bottom: black dotted 1px;
 }

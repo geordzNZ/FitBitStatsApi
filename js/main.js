@@ -63,15 +63,19 @@ function getPastSteps2(){
 
 
 function displaySteps(data){
-  console.log(data)
-
+  //Data Variables
   let stepsData = data['activities-steps-intraday']['dataset']
   let dataLength = stepsData.length
+
+  //HTML Elements
   let stepsTotal = document.getElementById("stepsTotal")
   let stepsDate = document.getElementById("stepsDate")
   let stepsBreakdown = document.getElementById("stepsBreakdown")
+  
+  console.log(data)
 
-  if (stepsBreakdown.innerText!='') { stepsBreakdown.innerText = '' }
+  //Work with data on the page
+  stepsBreakdown.innerText = ''
   stepsTotal.innerText = data['activities-steps'][0].value
   stepsDate.innerText = data['activities-steps'][0].dateTime
 
@@ -85,8 +89,9 @@ function displaySteps(data){
       //console.log('  --',j)
       stepCtr += stepsData[j].value
       
-      div.innerHTML = `Time Part: ${stepsData[i].time} to ${stepsData[j+1].time}  = ${stepCtr} -- ${j}`
+      div.innerHTML = `${stepsData[i].time} to ${j===1438 ? '00:00:00' : stepsData[j+1].time} = ${stepCtr}`
       stepsBreakdown.appendChild(div)
+      //console.log(`${stepsData[i].time} / ${stepsData[j+1].time} -- ${i} / ${j} / ${j+1}`)
     }
   }
 }
