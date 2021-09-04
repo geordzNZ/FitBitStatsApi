@@ -5,7 +5,7 @@ document.querySelector('#btnProfile').addEventListener('click', getProfile)
 document.querySelector('#btnDevices').addEventListener('click', getDevices)
 document.querySelector('#btnGetSteps').addEventListener('click', getSteps)
 document.querySelector('#btnDateAdd').addEventListener('click', dateAdd)
-
+document.querySelector('#btnDateMinus').addEventListener('click', dateMinus)
 
 
 //FUNCTIONS
@@ -156,3 +156,12 @@ function dateAdd(){
   document.querySelector('#inpDate').value = `${selYear}-${selMonth<=9 ? '0'+selMonth : selMonth}-${selDay<=9 ? '0'+selDay : selDay}`
 }
 
+function dateMinus(){
+  let curDate = new Date(document.querySelector('#inpDate').value || Date())
+  curDate.setDate(curDate.getDate()-1)
+  let selYear = curDate.getFullYear()
+  let selMonth = curDate.getMonth()+1
+  let selDay = curDate.getDate()
+
+  document.querySelector('#inpDate').value = `${selYear}-${selMonth<=9 ? '0'+selMonth : selMonth}-${selDay<=9 ? '0'+selDay : selDay}`
+}
