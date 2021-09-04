@@ -6,6 +6,8 @@ document.querySelector('#btnDevices').addEventListener('click', getDevices)
 document.querySelector('#btnGetSteps').addEventListener('click', getSteps)
 document.querySelector('#btnDateAdd').addEventListener('click', dateAdd)
 
+
+
 //FUNCTIONS
 function getProfile(){
   fetch('https://api.fitbit.com/1/user/-/profile.json',{
@@ -153,3 +155,4 @@ function dateAdd(){
 
   document.querySelector('#inpDate').value = `${selYear}-${selMonth<=9 ? '0'+selMonth : selMonth}-${selDay<=9 ? '0'+selDay : selDay}`
 }
+
