@@ -86,6 +86,8 @@ function displaySteps(data){
     tCell5.innerText = stepsOutput[i].q3
     tCell6.innerText = stepsOutput[i].total
 
+    if (stepsOutput[i].total<250) { tCell6.classList.add("underTarget")}
+
     tRow.appendChild(tCell1)
     tRow.appendChild(tCell2)
     tRow.appendChild(tCell3)

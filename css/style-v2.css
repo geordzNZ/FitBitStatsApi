@@ -78,8 +78,14 @@ td:nth-child(1) {
   background: lightgray;
   border-right: 1px black solid;
 }
+
 td:nth-child(6) {
   font-weight: bold;
   border-left: 1px black solid;
-  background: yellow;
+  /* background: yellow; */
+}
+
+.underTarget{
+  background-color: red;
+  color: white;
 }
