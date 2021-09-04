@@ -82,7 +82,6 @@ td:nth-child(1) {
 td:nth-child(6) {
   font-weight: bold;
   border-left: 1px black solid;
-  /* background: yellow; */
 }
 
 .underTarget{

@@ -6,6 +6,7 @@ document.querySelector('#btnDevices').addEventListener('click', getDevices)
 document.querySelector('#btnGetSteps').addEventListener('click', getSteps)
 
 
+//FUNCTIONS
 function getProfile(){
   fetch('https://api.fitbit.com/1/user/-/profile.json',{
     method: "GET",
@@ -142,3 +143,4 @@ function getDevices(){
   .then(response => response.json())
   .then(json => console.log(json))
 }
+
