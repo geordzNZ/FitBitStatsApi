@@ -4,8 +4,8 @@ import { myName, myAddr, accessToken} from './shhh.js'
 document.querySelector('#btnProfile').addEventListener('click', getProfile)
 document.querySelector('#btnDevices').addEventListener('click', getDevices)
 document.querySelector('#btnGetSteps').addEventListener('click', getSteps)
-document.querySelector('#btnDateAdd').addEventListener('click', dateAdd)
-document.querySelector('#btnDateMinus').addEventListener('click', dateMinus)
+document.querySelector('#btnPrevDate').addEventListener('click', () => dateUpdate('p'))
+document.querySelector('#btnNextDate').addEventListener('click', () => dateUpdate('n'))
 
 
 //FUNCTIONS
@@ -146,19 +146,12 @@ function getDevices(){
   .then(json => console.log(json))
 }
 
-function dateAdd(){
+function dateUpdate(action){
+  console.log('hello',action)
   let curDate = new Date(document.querySelector('#inpDate').value || Date())
-  curDate.setDate(curDate.getDate()+1)
-  let selYear = curDate.getFullYear()
-  let selMonth = curDate.getMonth()+1
-  let selDay = curDate.getDate()
-
-  document.querySelector('#inpDate').value = `${selYear}-${selMonth<=9 ? '0'+selMonth : selMonth}-${selDay<=9 ? '0'+selDay : selDay}`
-}
-
-function dateMinus(){
-  let curDate = new Date(document.querySelector('#inpDate').value || Date())
-  curDate.setDate(curDate.getDate()-1)
+  if (action==='n') { curDate.setDate(curDate.getDate() + 1) }
+  else { curDate.setDate(curDate.getDate() - 1) }
+  
   let selYear = curDate.getFullYear()
   let selMonth = curDate.getMonth()+1
   let selDay = curDate.getDate()
