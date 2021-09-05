@@ -75,65 +75,22 @@ function displaySteps(data){
 
   for (let i=0; i<stepsOutput.length-1; i++){
     let tRow = document.createElement("tr")
-    let tCell1 = document.createElement("td")
-    let tCell2 = document.createElement("td")
-    let tCell3 = document.createElement("td")
-    let tCell4 = document.createElement("td")
-    let tCell5 = document.createElement("td")
-    let tCell6 = document.createElement("td")
-    
-    tCell1.innerText = `${i<10 ? '0'+i : i}--${i+1<10 ? '0'+(i+1) : i+1}`
-    tCell2.innerText = stepsOutput[i].q0
-    tCell3.innerText = stepsOutput[i].q1
-    tCell4.innerText = stepsOutput[i].q2
-    tCell5.innerText = stepsOutput[i].q3
-    tCell6.innerText = stepsOutput[i].total
 
-    if (stepsOutput[i].total<250) { tCell6.classList.add("underTarget")}
-
-    tRow.appendChild(tCell1)
-    tRow.appendChild(tCell2)
-    tRow.appendChild(tCell3)
-    tRow.appendChild(tCell4)
-    tRow.appendChild(tCell5)
-    tRow.appendChild(tCell6)
-
+    for (let j=1; j<=6; j++){
+      let tCell = document.createElement("td") 
+      if (j===1) { 
+        tCell.innerText = `${i<10 ? '0'+i : i}--${i+1<10 ? '0'+(i+1) : i+1}`
+      } else if (j<=5) {
+        tCell.innerText = stepsOutput[i]['q'+(j-2)]
+      } else {
+        tCell.innerText = stepsOutput[i].total
+        if (stepsOutput[i].total<250) { tCell.classList.add("underTarget")}
+        else { tCell.classList.add("metTarget") }
+      }
+      tRow.appendChild(tCell)
+    }
     stepsTableBody.appendChild(tRow)
   }
-
-
-
-
-
-
-  // for (let i=0; i<dataLength; i+=15){
-  //   let hrPart = `${i>10 ? '0'+i : i} - ${i+1>10 ? '0'+(i+1) : i+1}`
-  //   //console.log(hrPart)
-
-  //   //console.log(i)
-  //   let tRow = document.createElement("tr")
-  //   let tCell1 = document.createElement("td")
-  //   let tCell2 = document.createElement("td")
-  //   let tCell3 = document.createElement("td")
-  //   let tCell4 = document.createElement("td")
-
-
-  //   let stepCtr = 0
-  //   for (let j=i; j<i+15; j++){
-  //     //console.log('  --',j)
-  //     stepCtr += stepsData[j].value
-      
-  //     //div.innerHTML = `${stepsData[i].time} to ${j===1438 ? '00:00:00' : stepsData[j+1].time} = ${stepCtr}`
-  //     //stepsBreakdown.appendChild(div)
-  //     stepsTotal.push(stepCtr)
-  //     console.log(stepsTotal)
-
-  //     //console.log(`${stepsData[i].time} / ${stepsData[j+1].time} -- ${i} / ${j} / ${j+1}`)
-  //   }
-  // }
-
-console.log('done')
-
 }
 
 function getDevices(){

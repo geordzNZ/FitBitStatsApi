@@ -89,6 +89,14 @@ td:nth-child(6) {
 }
 
 .underTarget{
-  background-color: red;
-  color: white;
+  /* background-color: maroon; */
+  color: rebeccapurple;
+}
+.metTarget{
+  /* background-color: lightblue; */
+  color: black;
+}
+
+#dates{
+  line-height: 2;
 }
