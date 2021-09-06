@@ -10,6 +10,8 @@ document.querySelector('#btnDevices').addEventListener('click', getDevices)
 document.querySelector('#btnTodaySteps').addEventListener('click', getTodaySteps)
 document.querySelector('#btnPastSteps1').addEventListener('click', getPastSteps1)
 document.querySelector('#btnPastSteps2').addEventListener('click', getPastSteps2)
+document.querySelector('#btnXDateSteps').addEventListener('click', getXDateSteps)
+
 
 // function getAuth(){
 //   //Get Data
@@ -57,6 +59,19 @@ function getPastSteps1(){
 function getPastSteps2(){
   let res = ''
   fetch('https://api.fitbit.com/1/user/-/activities/steps/date/2021-08-31/1d.json',{
+    method: "GET",
+    headers: {"Authorization": "Bearer " + accessToken}
+  })
+  .then(response => response.json())
+  .then(data => displaySteps(data))
+}
+
+function getXDateSteps(){
+  let xDate = document.querySelector('#inpXDate').value
+  let res = ''
+  let urlFB = 'https://api.fitbit.com/1/user/-/activities/steps/date/' + xDate + '/1d.json'
+
+  fetch(urlFB,{
     method: "GET",
     headers: {"Authorization": "Bearer " + accessToken}
   })
