@@ -34,9 +34,9 @@
       Total Steps: <span id="stepsTotal"></span> for <span id="stepsDate"></span>
     </div>
     <div id="stepsBreakdown">
-      <table align="center">
+      <table id="stepsTable" align="center">
         <colgroup>
-          <col span="1" style="background-right: 1px black solid">
+          <col span="1" style="border-right: 1px black solid">
           <col span="4" ><!-- style="background-color:yellow"> -->
           <col span="1" style="background-color: lightgrey">
         </colgroup>
@@ -50,8 +50,8 @@
             <th width="75px">Total</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
+        <tbody id="stepsTableBody"></tbody>
+          <!-- <tr>
             <th>00 - 01</th>
             <td></td>
             <td></td>
@@ -243,7 +243,7 @@
             <td></td>
             <td></td>
           </tr>
-        </tbody>
+        </tbody> -->
       </table>
     </div>
 
