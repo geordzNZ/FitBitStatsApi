@@ -1,27 +1,12 @@
 import { myName, myAddr, accessToken} from './shhh.js'
 
-//const access_token = "Used to go here"
-
-
 //Button Listeners
-// document.querySelector('#btnAuth').addEventListener('click', getAuth)
 document.querySelector('#btnProfile').addEventListener('click', getProfile)
 document.querySelector('#btnDevices').addEventListener('click', getDevices)
 document.querySelector('#btnGetSteps').addEventListener('click', getSteps)
 
-// function getAuth(){
-//   //Get Data
-//   fetch('https://api.fitbit.com/1/user/-/profile.json',{
-//     method: "GET",
-//     headers: {"Authorization": "Bearer " + access_token}
-//   })
-//   .then(response => response.json())
-//   .then(json => console.log(json))
-// }
-
 
 function getProfile(){
-  // console.log(myName,myAddr)
   fetch('https://api.fitbit.com/1/user/-/profile.json',{
     method: "GET",
     headers: {"Authorization": "Bearer " + accessToken}
