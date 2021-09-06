@@ -7,10 +7,7 @@ import { myName, myAddr, accessToken} from './shhh.js'
 // document.querySelector('#btnAuth').addEventListener('click', getAuth)
 document.querySelector('#btnProfile').addEventListener('click', getProfile)
 document.querySelector('#btnDevices').addEventListener('click', getDevices)
-document.querySelector('#btnTodaySteps').addEventListener('click', getTodaySteps)
-document.querySelector('#btnPastSteps1').addEventListener('click', getPastSteps1)
-document.querySelector('#btnPastSteps2').addEventListener('click', getPastSteps2)
-document.querySelector('#btnXDateSteps').addEventListener('click', getXDateSteps)
+document.querySelector('#btnGetSteps').addEventListener('click', getSteps)
 
 
 // function getAuth(){
@@ -35,40 +32,10 @@ function getProfile(){
 }
 
 
-function getTodaySteps(){
 
-  let res = ''
-  fetch('https://api.fitbit.com/1/user/-/activities/steps/date/today/1d.json',{
-    method: "GET",
-    headers: {"Authorization": "Bearer " + accessToken}
-  })
-  .then(response => response.json())
-  .then(data => displaySteps(data))
-}
 
-function getPastSteps1(){
-  let res = ''
-  fetch('https://api.fitbit.com/1/user/-/activities/steps/date/2021-09-02/1d.json',{
-    method: "GET",
-    headers: {"Authorization": "Bearer " + accessToken}
-  })
-  .then(response => response.json())
-  .then(data => displaySteps(data))
-}
-
-function getPastSteps2(){
-  let res = ''
-  fetch('https://api.fitbit.com/1/user/-/activities/steps/date/2021-08-31/1d.json',{
-    method: "GET",
-    headers: {"Authorization": "Bearer " + accessToken}
-  })
-  .then(response => response.json())
-  .then(data => displaySteps(data))
-}
-
-function getXDateSteps(){
-  let xDate = document.querySelector('#inpXDate').value
-  let res = ''
+function getSteps(){
+  let xDate = document.querySelector('#inpDate').value || 'today'
   let urlFB = 'https://api.fitbit.com/1/user/-/activities/steps/date/' + xDate + '/1d.json'
 
   fetch(urlFB,{
