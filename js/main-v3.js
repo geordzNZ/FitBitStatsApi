@@ -9,7 +9,7 @@ document.querySelector('#btnSetNextDate').addEventListener('click', () => dateUp
 document.querySelector('#inpDate').addEventListener('change', () => dateUpdate('s'))
 document.querySelector('#tglDisplay').addEventListener('click', changeTableHeader)
 // document.querySelector('#btnCopy').addEventListener('click', copyStats)
-document.querySelector('#btnRefresh').addEventListener('click', getRefreshedToken)
+// document.querySelector('#btnRefresh').addEventListener('click', getRefreshedToken)
 
 
 //FUNCTIONS
@@ -64,6 +64,9 @@ function displaySteps(data){
   let stepsOutput = []
   let tRow7Steps = [0,0,0,0]
   let breakLoop = false;
+  let stepsDateParts = [...data['activities-steps'][0].dateTime.split('-').reverse()]
+  let stepsDayName = new Date(data['activities-steps'][0].dateTime).toLocaleDateString('en', {weekday : 'short'} )
+  let stepsMonthName = new Date(data['activities-steps'][0].dateTime).toLocaleDateString('en', {month : 'short'} )
 
   //HTML Elements
   let stepsTotal = document.getElementById("stepsTotal")
@@ -76,7 +79,7 @@ function displaySteps(data){
   //Work with data on the page
   stepsTableBody.innerText = ""
   stepsTotal.innerText = data['activities-steps'][0].value
-  stepsDate.innerText = data['activities-steps'][0].dateTime.split('-').reverse().join('-')
+  stepsDate.innerText = `${stepsDateParts[0] }/${stepsMonthName}/${stepsDateParts[2]} (${stepsDayName})`
 
   //v2 process data for table.
   //   1) split into hr's
