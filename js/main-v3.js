@@ -176,14 +176,16 @@ function changeTableHeader(){
 }
 
 function getRefreshedToken() {
-  let urlFB = 'https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=22C8VN&redirect_uri=http%3A%2F%2Flocalhost&scope=activity%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=300'
+  console.log('getRefreshToken')
+  let urlFB = 'https://api.fitbit.com/oauth2/token'
   
   fetch(urlFB,{
-    method: "GET",
-    // headers: {"Authorization": "Bearer " + accessToken}
+    method: "POST",
+    mode: 'no-cors',
+    headers: {"Authorization": "Basic " + accessToken}
   })
   .then(response => response.json())
-  .then(data => displaySteps(data))
+  .then(data => console.log(data))
 }
 
 
