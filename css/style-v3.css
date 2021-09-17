@@ -29,13 +29,13 @@ body {
   background-repeat: no-repeat; */
 }
 
-#pageDiv{
+#pageDiv {
   display: grid;
-  grid-template-columns: 250px 2fr 3fr;
-  column-gap: 2rem;
+  grid-template-columns: 250px 3fr 3fr;
+  column-gap: 1rem;
 }
 
-#pageLeft{
+#pageLeft {
   margin-left: 5px;
   padding-left: 5px;
   line-height: 1.5em;

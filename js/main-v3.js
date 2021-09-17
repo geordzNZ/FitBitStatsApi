@@ -9,6 +9,7 @@ document.querySelector('#btnSetNextDate').addEventListener('click', () => dateUp
 document.querySelector('#inpDate').addEventListener('change', () => dateUpdate('s'))
 document.querySelector('#tglDisplay').addEventListener('click', changeTableHeader)
 // document.querySelector('#btnCopy').addEventListener('click', copyStats)
+document.querySelector('#btnRefresh').addEventListener('click', getRefreshedToken)
 
 
 //FUNCTIONS
@@ -171,9 +172,20 @@ function changeTableHeader(){
     
     document.getElementById("fa-web").classList.add("selectedBackground")
     document.getElementById("fa-excel").classList.remove("selectedBackground")
-
   }
 }
+
+function getRefreshedToken() {
+  let urlFB = 'https://api.fitbit.com/1/user/-/activities/steps/date/' + xDate + '/1d.json'
+  
+  fetch(urlFB,{
+    method: "GET",
+    headers: {"Authorization": "Bearer " + accessToken}
+  })
+  .then(response => response.json())
+  .then(data => displaySteps(data))
+}
+
 
 // function copyStats(){
 //   let body = document.body, range, sel;
