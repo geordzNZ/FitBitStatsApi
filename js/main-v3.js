@@ -9,7 +9,7 @@ document.querySelector('#btnSetNextDate').addEventListener('click', () => dateUp
 document.querySelector('#inpDate').addEventListener('change', () => dateUpdate('s'))
 document.querySelector('#tglDisplay').addEventListener('click', changeTableHeader)
 // document.querySelector('#btnCopy').addEventListener('click', copyStats)
-// document.querySelector('#btnRefresh').addEventListener('click', getRefreshedToken)
+document.querySelector('#btnRefresh').addEventListener('click', getRefreshedToken)
 
 
 //FUNCTIONS
@@ -175,16 +175,16 @@ function changeTableHeader(){
   }
 }
 
-// function getRefreshedToken() {
-//   let urlFB = 'https://api.fitbit.com/1/user/-/activities/steps/date/' + xDate + '/1d.json'
+function getRefreshedToken() {
+  let urlFB = 'https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=22C8VN&redirect_uri=http%3A%2F%2Flocalhost&scope=activity%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=300'
   
-//   fetch(urlFB,{
-//     method: "GET",
-//     headers: {"Authorization": "Bearer " + accessToken}
-//   })
-//   .then(response => response.json())
-//   .then(data => displaySteps(data))
-// }
+  fetch(urlFB,{
+    method: "GET",
+    // headers: {"Authorization": "Bearer " + accessToken}
+  })
+  .then(response => response.json())
+  .then(data => displaySteps(data))
+}
 
 
 // function copyStats(){
