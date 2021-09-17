@@ -1,4 +1,4 @@
-import { myName, myAddr, accessToken} from './shhh.js'
+import { accessToken} from './shhh.js'
 
 //Button Listeners
 document.querySelector('#btnProfile').addEventListener('click', getProfile)
@@ -33,6 +33,8 @@ function getSteps(){
 
 
 function displaySteps(data){
+  console.log(data)
+
   //Data Variables
   let stepsData = data['activities-steps-intraday']['dataset']
   let dataLength = stepsData.length
@@ -45,8 +47,6 @@ function displaySteps(data){
   let stepsDate = document.getElementById("stepsDate")
   let stepsTableBody = document.getElementById("stepsTableBody")
 
-  console.log(data)
-
   //Work with data on the page
   stepsTableBody.innerText = ""
   stepsTotal.innerText = data['activities-steps'][0].value
@@ -57,12 +57,10 @@ function displaySteps(data){
   for (let i=0; i<=dataLength; i+=15){
     stepsPerHr.push(stepsData.slice(i,i+15))
   }
-  //console.log(stepsPerHr)
 
   for (let s of stepsPerHr){
     step15MinTotals.push(s.reduce((t,v)=>t+=v.value,0))
   }
-  //console.log(step15MinTotals)
 
   for (let i=0; i<step15MinTotals.length; i+=4){
     let a = step15MinTotals[i]
@@ -71,7 +69,6 @@ function displaySteps(data){
     let d = step15MinTotals[i+3]
     stepsOutput.push({q0: a, q1: b, q2: c, q3: d, total: a+b+c+d})
   }
-  //console.log(stepsOutput)
 
   for (let i=0; i<stepsOutput.length-1; i++){
     let tRow = document.createElement("tr")
@@ -104,7 +101,6 @@ function getDevices(){
 }
 
 function dateUpdate(action){
-  console.log('hello',action)
   let curDate = new Date(document.querySelector('#inpDate').value || Date())
   if (action==='n') { curDate.setDate(curDate.getDate() + 1) }
   else { curDate.setDate(curDate.getDate() - 1) }
