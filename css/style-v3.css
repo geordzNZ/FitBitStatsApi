@@ -1,0 +1,102 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+  text-align: center;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+/* header {
+
+}
+
+footer {
+
+} */
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+span {
+  font-weight: bold;
+}
+
+input{
+  text-align: center;
+}
+
+#stepsBreakdown{
+  background: yellowgreen;
+  width: 50%;
+  text-align: center;
+  margin: 0px auto;
+padding: 10px;
+}
+
+table{
+  border: 1px solid black;
+  border-collapse:collapse;
+}
+thead {
+  background: lightgray;
+  border-bottom: 1px black solid;
+}
+td{
+  text-align: center;
+  border-bottom: 1px dotted black
+}
+/* tr:nth-child(even){
+  background: rgb(248, 248, 57);
+} */
+tr:nth-child(7) {
+  border-bottom: 2px black solid;
+}
+tr:nth-child(18) {
+  border-bottom: 2px black solid;
+}
+td:nth-child(1) {
+  font-weight: bold;
+  background: lightgray;
+  border-right: 1px black solid;
+}
+
+td:nth-child(6) {
+  font-weight: bold;
+  border-left: 1px black solid;
+}
+
+.underTarget{
+  /* background-color: maroon; */
+  color: rebeccapurple;
+}
+.metTarget{
+  /* background-color: lightblue; */
+  color: black;
+}
+
+#dates{
+  line-height: 2;
+}
