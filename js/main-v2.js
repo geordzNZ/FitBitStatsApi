@@ -3,7 +3,7 @@ import { accessToken} from './shhh.js'
 //Button Listeners
 document.querySelector('#btnProfile').addEventListener('click', getProfile)
 document.querySelector('#btnDevices').addEventListener('click', getDevices)
-document.querySelector('#btnGetSteps').addEventListener('click', getSteps)
+// document.querySelector('#btnGetSteps').addEventListener('click', getSteps)
 document.querySelector('#btnSetToday').addEventListener('click', () => dateUpdate('t'))
 document.querySelector('#btnSetPrevDate').addEventListener('click', () => dateUpdate('p'))
 document.querySelector('#btnSetNextDate').addEventListener('click', () => dateUpdate('n'))
@@ -110,6 +110,7 @@ function dateUpdate(action){
   } else {
     curDate = new Date(Date())
   }
+  
   let selYear = curDate.getFullYear()
   let selMonth = curDate.getMonth()+1
   let selDay = curDate.getDate()
