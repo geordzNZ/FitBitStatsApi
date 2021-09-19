@@ -4,8 +4,9 @@ import { accessToken} from './shhh.js'
 document.querySelector('#btnProfile').addEventListener('click', getProfile)
 document.querySelector('#btnDevices').addEventListener('click', getDevices)
 document.querySelector('#btnGetSteps').addEventListener('click', getSteps)
-document.querySelector('#btnPrevDate').addEventListener('click', () => dateUpdate('p'))
-document.querySelector('#btnNextDate').addEventListener('click', () => dateUpdate('n'))
+document.querySelector('#btnSetToday').addEventListener('click', () => dateUpdate('t'))
+document.querySelector('#btnSetPrevDate').addEventListener('click', () => dateUpdate('p'))
+document.querySelector('#btnSetNextDate').addEventListener('click', () => dateUpdate('n'))
 
 
 //FUNCTIONS
@@ -102,12 +103,17 @@ function getDevices(){
 
 function dateUpdate(action){
   let curDate = new Date(document.querySelector('#inpDate').value || Date())
-  if (action==='n') { curDate.setDate(curDate.getDate() + 1) }
-  else { curDate.setDate(curDate.getDate() - 1) }
   
+  if (action!='t') {
+    if (action==='n') { curDate.setDate(curDate.getDate() + 1) }
+    else { curDate.setDate(curDate.getDate() - 1) }
+  } else {
+    curDate = new Date(Date())
+  }
   let selYear = curDate.getFullYear()
   let selMonth = curDate.getMonth()+1
   let selDay = curDate.getDate()
 
   document.querySelector('#inpDate').value = `${selYear}-${selMonth<=9 ? '0'+selMonth : selMonth}-${selDay<=9 ? '0'+selDay : selDay}`
+  getSteps()
 }
