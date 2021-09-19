@@ -6,11 +6,11 @@
   	<meta name="keywords" content="one, two, three">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>Fitbit v2</title>
+		<title>Fitbit v3</title>
 
 		<!-- external CSS link -->
 		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/style-v2.css">
+		<link rel="stylesheet" href="css/style-v3.css">
 	</head>
 	<body>
     <nav>
@@ -18,20 +18,28 @@
       <a href="/index-v2.html">v2</a>
       <a href="/index-v3.html">v3</a>
      </nav>
-     <h1>Fitbit stats page v2</h1>
-     <h3>Reformat into a grid some how ... probably table for this version </h3>
+     <h1>Fitbit stats page v3</h1>
+     <h3>Reformat to provide different ouput, for Web display or copy/paste to Excel</h3>
      <div>
       <button id="btnProfile">Profile</button>
       <button id="btnDevices">Devices</button>
     </div>
     <div id="dates">
-      <Input type="date" id="inpDate"></Input>
-      <br>
-      <button id="btnSetPrevDate"><=</button>
-      <button id="btnSetToday">Today</button>
-      <button id="btnSetNextDate">=></button>
-      <!-- <br> -->
-      <!-- <button id="btnGetSteps"><b>Retrieve</b></button> -->
+      <div>
+        <Input type="date" id="inpDate"></Input>
+      </div>
+      <div>
+        <button id="btnSetPrevDate"><=</button>
+        <button id="btnSetToday">Today</button>
+        <button id="btnSetNextDate">=></button>
+      </div>
+      <div>
+        Output for:
+        <input type="radio" name="displayType" id="displayWeb" value="w" checked="true">
+        <label for="displayWeb"> Web / </label>
+        <input type="radio" name="displayType" id="displayExcel" value="x">
+        <label for="displayExcel"> Excel</label>
+      </div>
     </div>
 
 
@@ -59,7 +67,7 @@
       </table>
     </div>
 
-    <script type="module" src="js/main-v2.js"></script>
+    <script type="module" src="js/main-v3.js"></script>
     <script type="module" src="js/shhh.js"></script>
 	</body>
 </html>

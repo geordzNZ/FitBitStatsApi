@@ -3,7 +3,6 @@ import { accessToken} from './shhh.js'
 //Button Listeners
 document.querySelector('#btnProfile').addEventListener('click', getProfile)
 document.querySelector('#btnDevices').addEventListener('click', getDevices)
-// document.querySelector('#btnGetSteps').addEventListener('click', getSteps)
 document.querySelector('#btnSetToday').addEventListener('click', () => dateUpdate('t'))
 document.querySelector('#btnSetPrevDate').addEventListener('click', () => dateUpdate('p'))
 document.querySelector('#btnSetNextDate').addEventListener('click', () => dateUpdate('n'))
@@ -14,6 +13,16 @@ function getProfile(){
   fetch('https://api.fitbit.com/1/user/-/profile.json',{
     method: "GET",
     headers: {"Authorization": "Bearer " + accessToken}
+  })
+  .then(response => response.json())
+  .then(json => console.log(json))
+}
+
+function getDevices(){
+  //Get Data
+  fetch('https://api.fitbit.com/1/user/-/devices.json',{
+    method: "GET",
+    headers: {"Authorization": "Bearer " + access_token}
   })
   .then(response => response.json())
   .then(json => console.log(json))
@@ -42,11 +51,18 @@ function displaySteps(data){
   let stepsPerHr = []
   let step15MinTotals = []
   let stepsOutput = []
+  let displayTo = ''
 
   //HTML Elements
   let stepsTotal = document.getElementById("stepsTotal")
   let stepsDate = document.getElementById("stepsDate")
   let stepsTableBody = document.getElementById("stepsTableBody")
+  let displayType = document.getElementsByName("displayType")
+
+  for (let i=0;i<2;i++){
+    if(displayType[i].checked) { displayTo = displayType[i].value }
+  }
+  console.log(displayTo)
 
   //Work with data on the page
   stepsTableBody.innerText = ""
@@ -89,16 +105,6 @@ function displaySteps(data){
     }
     stepsTableBody.appendChild(tRow)
   }
-}
-
-function getDevices(){
-  //Get Data
-  fetch('https://api.fitbit.com/1/user/-/devices.json',{
-    method: "GET",
-    headers: {"Authorization": "Bearer " + access_token}
-  })
-  .then(response => response.json())
-  .then(json => console.log(json))
 }
 
 function dateUpdate(action){
