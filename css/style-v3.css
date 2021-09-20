@@ -23,6 +23,12 @@
 
 body {
   text-align: center;
+  font-family: 'Carattere', cursive;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
 }
 
 /******************************************
