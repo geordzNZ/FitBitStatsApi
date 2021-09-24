@@ -97,13 +97,15 @@ th:nth-child(6), td:nth-child(6) {
   border-left: 1px black solid;
 }
 
+.metTarget{
+  /* background-color: lightblue; */
+  color: black;
+  background: green;
+}
+
 .underTarget{
   /* background-color: maroon; */
-  color: purple;
-}
-.metTarget{
-  color: black;
-  
+  color: red;
 }
 
 #dates{
