@@ -1,4 +1,4 @@
-import { myName, myAddr, accessToken} from './shhh.js'
+import { accessToken} from './shhh.js'
 
 //Button Listeners
 document.querySelector('#btnProfile').addEventListener('click', getProfile)
