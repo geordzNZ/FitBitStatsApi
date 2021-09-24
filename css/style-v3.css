@@ -30,7 +30,9 @@ body {
 h1 {
   font-size: 3rem;
   margin: 0;
-
+  font-family: 'Carattere', cursive;
+  text-shadow: 1px 1px 2px darkgreen, 0 0 1em seagreen, 0 0 0.2em green;
+  letter-spacing: .25rem;
 }
 
 /******************************************
