@@ -44,7 +44,7 @@ function displaySteps(data){
   //Work with data on the page
   stepsBreakdown.innerText = ''
   stepsTotal.innerText = data['activities-steps'][0].value
-  stepsDate.innerText = data['activities-steps'][0].dateTime
+  stepsDate.innerText = data['activities-steps'][0].dateTime.split('-').reverse().join('-')
 
   console.log(dataLength)
 

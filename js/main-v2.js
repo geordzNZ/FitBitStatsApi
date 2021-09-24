@@ -51,7 +51,7 @@ function displaySteps(data){
   //Work with data on the page
   stepsTableBody.innerText = ""
   stepsTotal.innerText = data['activities-steps'][0].value
-  stepsDate.innerText = data['activities-steps'][0].dateTime
+  stepsDate.innerText = data['activities-steps'][0].dateTime.split('-').reverse().join('-')
 
   //v2 process data for table.
   //   1) split into hr's
