@@ -30,10 +30,23 @@ body {
 h1 {
   font-size: 3rem;
   margin: 0;
+  margin-top: 1rem;
   font-family: 'Carattere', cursive;
   text-shadow: 1px 1px 2px darkgreen, 0 0 1em seagreen, 0 0 0.2em green;
   letter-spacing: .25rem;
 }
+
+h2 {
+  color: darkgreen;
+  text-decoration: underline;
+  margin: .5rem 0;
+}
+
+h4 {
+  color: green;
+  margin-top: 0;
+}
+
 
 /******************************************
 /* LAYOUT
@@ -49,9 +62,10 @@ footer {
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
-
-span {
-  font-weight: bold;
+.stepsTotal {
+  color: green;
+  font-size: larger;
+  letter-spacing: .15rem;
 }
 
 input{
