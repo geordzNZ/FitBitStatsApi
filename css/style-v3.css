@@ -86,13 +86,13 @@ tr:nth-child(7) {
 tr:nth-child(18) {
   border-bottom: 2px black solid;
 }
-td:nth-child(1) {
+th:nth-child(1), td:nth-child(1) {
   font-weight: bold;
   background: lightgray;
   border-right: 1px black solid;
 }
 
-td:nth-child(6) {
+th:nth-child(6), td:nth-child(6) {
   font-weight: bold;
   border-left: 1px black solid;
 }
