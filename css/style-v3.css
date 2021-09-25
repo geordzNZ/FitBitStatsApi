@@ -151,15 +151,14 @@ input{
 }
 
 /* The switch - the box around the slider */
-.switch {
+.toggle {
   position: relative;
   display: inline-block;
   width: 60px;
-  /* border: 1px red solid; */
 }
 
 /* Hide default HTML checkbox */
-.switch input {
+.toggle input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -173,7 +172,6 @@ input{
   left: 0;
   right: 0;
   bottom: 0;
-  /* background-color: #ccc; */
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -185,8 +183,8 @@ input{
   left: 5px;
   top: 8px;
   background-color: lightgreen;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 input:checked + .slider:before {
