@@ -33,10 +33,10 @@ h1 {
   margin-top: 1rem;
   font-family: 'Carattere', cursive;
   text-shadow: 1px 1px 2px darkgreen, 0 0 1em seagreen, 0 0 0.2em green;
-  letter-spacing: .25rem;
+  letter-spacing: .25em;
 }
 
-h2 {
+/* h2 {
   background: lightgreen;
   color: darkgreen;
   text-decoration: underline;
@@ -46,7 +46,7 @@ h2 {
   border-top-left-radius: .5em;
   border-top-right-radius: .5em;
   width: max-content;
-}
+} */
 
 h4 {
   color: green;
@@ -68,20 +68,20 @@ footer {
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
-.stepsTotalandDate{
+
+.stepsHeader{
   color: green;
-  font-size: larger;
+  font-size: 1.5em;
   background: lightgreen;
-  padding: 5px 10px;
+  padding: 5px 10px 0 10px;
   border-top-left-radius: .5em;
   border-top-right-radius: .5em;
+  margin: 5px auto 0 auto;
+  width: max-content;
 }
 .stepsTotal {
-  letter-spacing: .10rem;
-}
-
-input{
-  text-align: center;
+  font-weight: bold;
+  letter-spacing: .05em;
 }
 
 #stepsBreakdown{
@@ -101,7 +101,7 @@ thead {
   background: lightgray;
   border-bottom: 1px black solid;
 }
-td{
+td {
   text-align: center;
   border-bottom: 1px dotted black
 }
@@ -123,6 +123,10 @@ th:nth-child(1), td:nth-child(1) {
 th:nth-child(6), td:nth-child(6) {
   font-weight: bold;
   border-left: 1px black solid;
+}
+
+input{
+  text-align: center;
 }
 
 .metTarget{
