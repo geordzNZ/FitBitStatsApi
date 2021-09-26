@@ -93,10 +93,12 @@ function displaySteps(data){
       let tCell = document.createElement("td") 
       if (j===1) { 
         tCell.innerText = `${i<10 ? '0'+i : i}--${i+1<10 ? '0'+(i+1) : i+1}`
+        tCell.classList.add("tblCol1")
       } else if (j<=5) {
         tCell.innerText = stepsOutput[i]['q'+(j-2)]
       } else {
         tCell.innerText = stepsOutput[i].total
+        tCell.classList.add("tblCol6")
         if (stepsOutput[i].total<250) { tCell.classList.add("underTarget")}
         else { tCell.classList.add("metTarget") }
       }
