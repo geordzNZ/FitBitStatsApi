@@ -192,3 +192,12 @@ input:checked + .slider:before {
   -ms-transform: translateX(35px);
   transform: translateX(35px);
 }
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
