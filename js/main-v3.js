@@ -89,20 +89,28 @@ function displaySteps(data){
   for (let i=0; i<stepsOutput.length-1; i++){
     let tRow = document.createElement("tr")
 
-    for (let j=1; j<=6; j++){
-      let tCell = document.createElement("td") 
-      if (j===1) { 
-        tCell.innerText = `${i<10 ? '0'+i : i}--${i+1<10 ? '0'+(i+1) : i+1}`
-        tCell.classList.add("tblCol1")
-      } else if (j<=5) {
-        tCell.innerText = stepsOutput[i]['q'+(j-2)]
-      } else {
-        tCell.innerText = stepsOutput[i].total
-        tCell.classList.add("tblCol6")
-        if (stepsOutput[i].total<250) { tCell.classList.add("underTarget")}
-        else { tCell.classList.add("metTarget") }
+    if (displayType){
+      for (let j=1; j<=4; j++){
+        let tCell = document.createElement("td") 
+        tCell.innerText = stepsOutput[i]['q'+(j-1)]
+        tRow.appendChild(tCell)
       }
-      tRow.appendChild(tCell)
+    } else {
+      for (let j=1; j<=6; j++){
+        let tCell = document.createElement("td") 
+        if (j===1) { 
+          tCell.innerText = `${i<10 ? '0'+i : i}--${i+1<10 ? '0'+(i+1) : i+1}`
+          tCell.classList.add("tblCol1")
+        } else if (j<=5) {
+          tCell.innerText = stepsOutput[i]['q'+(j-2)]
+        } else {
+          tCell.innerText = stepsOutput[i].total
+          tCell.classList.add("tblCol6")
+          if (stepsOutput[i].total<250) { tCell.classList.add("underTarget")}
+          else { tCell.classList.add("metTarget") }
+        }
+        tRow.appendChild(tCell)
+      }
     }
     stepsTableBody.appendChild(tRow)
   }
@@ -127,13 +135,11 @@ function dateUpdate(action){
 }
 
 function changeTableHeader(){
-  console.log("Change 1")
+  document.getElementById("stepsTableBody").innerText = ""
   if (document.getElementById("tglDisplay").checked){
-    console.log("Change 2")
     document.getElementById("hdrWeb").classList.add("hdrHidden")
     document.getElementById("hdrExcel").classList.remove("hdrHidden")
   } else {
-    console.log("Change 3")
     document.getElementById("hdrExcel").classList.add("hdrHidden")
     document.getElementById("hdrWeb").classList.remove("hdrHidden")
   }
