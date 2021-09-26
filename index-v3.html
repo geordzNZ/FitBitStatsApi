@@ -39,17 +39,8 @@
         Output for:
         Web
         <label class="toggle">
-          <input type="checkbox">
+          <input id="tglDisplay" type="checkbox">
           <span class="slider"></span>
-        </label>
-        Excel
-      </div>
-      <div>
-        Output for:
-        Web
-        <label class="toggle">
-          <input type="checkbox">
-          <span class="slider round"></span>
         </label>
         Excel
       </div>
@@ -60,19 +51,20 @@
     </div>
     <div id="stepsBreakdown">
       <table id="stepsTable" align="center">
-        <colgroup>
-          <col span="1">
-          <col span="4">
-          <col span="1">
-        </colgroup>
         <thead>
-          <tr>
+          <tr id="hdrWeb">
             <th width="75px">Time</th>
             <th width="75px">15</th>
             <th width="75px">30</th>
             <th width="75px">45</th>
             <th width="75px">60</th>
             <th width="75px">Total</th>
+          </tr>
+          <tr id="hdrExcel" class="hdrHidden">
+            <th width="75px">15</th>
+            <th width="75px">30</th>
+            <th width="75px">45</th>
+            <th width="75px">60</th>
           </tr>
         </thead>
         <tbody id="stepsTableBody"></tbody>

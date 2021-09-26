@@ -6,6 +6,7 @@ document.querySelector('#btnDevices').addEventListener('click', getDevices)
 document.querySelector('#btnSetToday').addEventListener('click', () => dateUpdate('t'))
 document.querySelector('#btnSetPrevDate').addEventListener('click', () => dateUpdate('p'))
 document.querySelector('#btnSetNextDate').addEventListener('click', () => dateUpdate('n'))
+document.querySelector('#tglDisplay').addEventListener('click', changeTableHeader)
 
 
 //FUNCTIONS
@@ -58,12 +59,9 @@ function displaySteps(data){
   let stepsTotal = document.getElementById("stepsTotal")
   let stepsDate = document.getElementById("stepsDate")
   let stepsTableBody = document.getElementById("stepsTableBody")
-  let displayType = document.getElementsByName("displayType")
+  let displayType = document.getElementById("tglDisplay").checked
 
-  for (let i=0;i<2;i++){
-    if(displayType[i].checked) { displayTo = displayType[i].value }
-  }
-  console.log(displayTo)
+
 
   //Work with data on the page
   stepsTableBody.innerText = ""
@@ -124,4 +122,17 @@ function dateUpdate(action){
 
   document.querySelector('#inpDate').value = `${selYear}-${selMonth<=9 ? '0'+selMonth : selMonth}-${selDay<=9 ? '0'+selDay : selDay}`
   getSteps()
+}
+
+function changeTableHeader(){
+  console.log("Change 1")
+  if (document.getElementById("tglDisplay").checked){
+    console.log("Change 2")
+    document.getElementById("hdrWeb").classList.add("hdrHidden")
+    document.getElementById("hdrExcel").classList.remove("hdrHidden")
+  } else {
+    console.log("Change 3")
+    document.getElementById("hdrExcel").classList.add("hdrHidden")
+    document.getElementById("hdrWeb").classList.remove("hdrHidden")
+  }
 }
