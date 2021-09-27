@@ -86,7 +86,6 @@ function displaySteps(data){
     stepsOutput.push({q0: a, q1: b, q2: c, q3: d, total: a+b+c+d})
   }
 
-  let tRow7 = document.createElement("tr")
   let tRow7Steps = [0,0,0,0]
   for (let i=0; i<stepsOutput.length-1; i++){
     let tRow = document.createElement("tr")
@@ -102,6 +101,7 @@ function displaySteps(data){
         } else {
           tCell.innerText = stepsOutput[i]['q'+(j-1)]
           tRow.appendChild(tCell)
+          if (stepsOutput[i].total>250) { tRow.classList.add("metTarget")}
         }
       }
     } else {
@@ -115,8 +115,7 @@ function displaySteps(data){
         } else {
           tCell.innerText = stepsOutput[i].total
           tCell.classList.add("tblCol6")
-          if (stepsOutput[i].total<250) { tCell.classList.add("underTarget")}
-          else { tCell.classList.add("metTarget") }
+          if (stepsOutput[i].total>250) { tCell.classList.add("metTarget")}
         }
         tRow.appendChild(tCell)
       }
