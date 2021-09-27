@@ -53,6 +53,7 @@ h1 {
   text-shadow: 1px 1px 2px darkgreen, 0 0 1em seagreen, 0 0 0.2em green;
   letter-spacing: .25em;
   text-align: center;
+  /* border: red 1px solid; */
 }
 
 /* h2 {
@@ -115,6 +116,7 @@ input {
   border-top-right-radius: .5em;
   margin: 5px auto 0 auto;
   width: max-content;
+  text-align: center;
 }
 .stepsTotal {
   font-weight: bold;
@@ -173,10 +175,6 @@ input{
 .metTarget{
   color: black;
   background: green;
-}
-
-#dates{
-  line-height: 2;
 }
 .underDev{
   background: rgb(238, 153, 153);
