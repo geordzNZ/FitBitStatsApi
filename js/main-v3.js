@@ -23,7 +23,7 @@ function getDevices(){
   //Get Data
   fetch('https://api.fitbit.com/1/user/-/devices.json',{
     method: "GET",
-    headers: {"Authorization": "Bearer " + access_token}
+    headers: {"Authorization": "Bearer " + accessToken}
   })
   .then(response => response.json())
   .then(json => console.log(json))
