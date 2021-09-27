@@ -28,7 +28,7 @@ body {
 
 #pageDiv{
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 250px 100%;
   column-gap: 2rem;
 }
 
@@ -43,6 +43,7 @@ body {
 }
 
 h1 {
+  text-align: left;
   font-size: 4rem;
   margin: 0;
   margin-top: 1rem;
@@ -213,6 +214,21 @@ input:checked + .slider:before {
 .hdrHidden {
   display: none;
 }
+.selectedBackground {
+  background-color: lightgreen;
+  border-radius: 50%;
+}
 .tempBorder{
   border: 1px dashed blue;
+}
+.leftAlign{
+  text-align: left;
+}
+span.fas{
+  font-size: 4rem;
+  margin-left: 5px;
+  margin-top: 1rem;
+  padding-left: 5px;
+  text-shadow: 1px 1px 2px darkgreen, 0 0 1em seagreen, 0 0 0.2em green;
+  letter-spacing: .25em;
 }

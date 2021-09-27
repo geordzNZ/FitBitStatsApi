@@ -151,8 +151,15 @@ function changeTableHeader(){
   if (document.getElementById("tglDisplay").checked){
     document.getElementById("hdrWeb").classList.add("hdrHidden")
     document.getElementById("hdrExcel").classList.remove("hdrHidden")
+    document.getElementById("fa-excel").classList.add("selectedBackground")
+    document.getElementById("fa-web").classList.remove("selectedBackground")
+
   } else {
     document.getElementById("hdrExcel").classList.add("hdrHidden")
     document.getElementById("hdrWeb").classList.remove("hdrHidden")
+    
+    document.getElementById("fa-web").classList.add("selectedBackground")
+    document.getElementById("fa-excel").classList.remove("selectedBackground")
+
   }
 }

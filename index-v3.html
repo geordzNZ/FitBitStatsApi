@@ -16,11 +16,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Carattere&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2807f157b7.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
-    <h1 title="Reformat to provide different ouput, for Web display or copy/paste to Excel">Fitbit stats page v3</h1>
-    <!-- <h4>Reformat to provide different ouput, for Web display or copy/paste to Excel</h4> -->
     <div id="pageDiv">
+      <span class="fas fa-walking leftAlign"></span>
+      <h1  class="" title="Reformat to provide different ouput, for Web display or copy/paste to Excel"> Fitbit stats page v3</h1>
+    <!-- <h4>Reformat to provide different ouput, for Web display or copy/paste to Excel</h4> -->
       <div id="pageLeft">
         <div id="navLinks">
           <a href="/index-v1.html">v1</a>
@@ -35,20 +37,21 @@
         <div>
           Output to:
           <span class="tglOptions">
-            Web
+            <!-- Web -->
+            <i id="fa-web" class="fas fa-desktop selectedBackground"></i>
             <label class="toggle">
               <input id="tglDisplay" type="checkbox">
               <span class="slider"></span>
             </label>
-            Excel
+            <!-- Excel -->
+            <i id="fa-excel" class="fas fa-file-excel"></i>
           </span>
         </div>
         <div>
-          <button id="btnSetPrevDate"><=</button>
+          <button id="btnSetPrevDate"><i class="fas fa-arrow-circle-left selectedBackground"></i></button>
           <Input type="date" id="inpDate"></Input>
-          <button id="btnSetNextDate">=></button>
+          <button id="btnSetNextDate"><i class="fas fa-arrow-circle-right selectedBackground"></i></button>
         </div>
-        <div><span class="fa-solid fa-person-walking tempBorder"></span></div>
       </div>
       <div id="pageRight">
         <div id="stepsContainer">
