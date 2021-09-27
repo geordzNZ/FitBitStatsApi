@@ -6,6 +6,7 @@ document.querySelector('#btnDevices').addEventListener('click', getDevices)
 document.querySelector('#btnSetToday').addEventListener('click', () => dateUpdate('t'))
 document.querySelector('#btnSetPrevDate').addEventListener('click', () => dateUpdate('p'))
 document.querySelector('#btnSetNextDate').addEventListener('click', () => dateUpdate('n'))
+document.querySelector('#inpDate').addEventListener('change', () => dateUpdate('s'))
 document.querySelector('#tglDisplay').addEventListener('click', changeTableHeader)
 
 
@@ -52,8 +53,8 @@ function displaySteps(data){
   let stepsPerHr = []
   let step15MinTotals = []
   let stepsOutput = []
-  let displayTo = ''
-  let tempStepsDate = []
+  let tRow7Steps = [0,0,0,0]
+  let breakLoop = false;
 
   //HTML Elements
   let stepsTotal = document.getElementById("stepsTotal")
@@ -86,8 +87,7 @@ function displaySteps(data){
     stepsOutput.push({q0: a, q1: b, q2: c, q3: d, total: a+b+c+d})
   }
 
-  let tRow7Steps = [0,0,0,0]
-  let breakLoop = false;
+
   for (let i=0; i<stepsOutput.length-1; i++){
     let tRow = document.createElement("tr")
     if (breakLoop) { break }
