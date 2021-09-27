@@ -46,35 +46,33 @@
           <button id="btnSetNextDate">=></button>
         </div>
       </div>
-    </div>
-
-    <div class="pageRight">
-      <div class="stepsHeader">
-        Total Steps:  <span id="stepsTotal" class="stepsTotal"></span> on <span id="stepsDate" class="stepsTotal"></span>
+      <div class="pageRight">
+        <div class="stepsHeader">
+          Total Steps:  <span id="stepsTotal" class="stepsTotal"></span> on <span id="stepsDate" class="stepsTotal"></span>
+        </div>
+        <div id="stepsBreakdown">
+          <table id="stepsTable" align="center">
+            <thead>
+              <tr id="hdrWeb">
+                <th class="tblCol1">Time</th>
+                <th>15</th>
+                <th>30</th>
+                <th>45</th>
+                <th>60</th>
+                <th class="tblCol6">Total</th>
+              </tr>
+              <tr id="hdrExcel" class="hdrHidden">
+                <th>15</th>
+                <th>30</th>
+                <th>45</th>
+                <th>60</th>
+              </tr>
+            </thead>
+            <tbody id="stepsTableBody"></tbody>
+          </table>
+        </div>
       </div>
-      <div id="stepsBreakdown">
-        <table id="stepsTable" align="center">
-          <thead>
-            <tr id="hdrWeb">
-              <th class="tblCol1">Time</th>
-              <th>15</th>
-              <th>30</th>
-              <th>45</th>
-              <th>60</th>
-              <th class="tblCol6">Total</th>
-            </tr>
-            <tr id="hdrExcel" class="hdrHidden">
-              <th>15</th>
-              <th>30</th>
-              <th>45</th>
-              <th>60</th>
-            </tr>
-          </thead>
-          <tbody id="stepsTableBody"></tbody>
-        </table>
-      </div>
     </div>
-
     <script type="module" src="js/main-v3.js"></script>
     <script type="module" src="js/shhh.js"></script>
 	</body>
