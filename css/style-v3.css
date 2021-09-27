@@ -213,3 +213,6 @@ input:checked + .slider:before {
 .hdrHidden {
   display: none;
 }
+.tempBorder{
+  border: 1px dashed blue;
+}
