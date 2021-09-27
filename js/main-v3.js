@@ -86,14 +86,23 @@ function displaySteps(data){
     stepsOutput.push({q0: a, q1: b, q2: c, q3: d, total: a+b+c+d})
   }
 
+  let tRow7 = document.createElement("tr")
+  let tRow7Steps = [0,0,0,0]
   for (let i=0; i<stepsOutput.length-1; i++){
     let tRow = document.createElement("tr")
-
     if (displayType){
-      for (let j=1; j<=4; j++){
+      for (let j=1; j<=4; j++) {
         let tCell = document.createElement("td") 
-        tCell.innerText = stepsOutput[i]['q'+(j-1)]
-        tRow.appendChild(tCell)
+        if (i<=6){
+          tRow7Steps[j-1] += stepsOutput[i]['q'+(j-1)]
+          if (i===6){
+            tCell.innerText = tRow7Steps[j-1]
+          tRow.appendChild(tCell)
+          }
+        } else {
+          tCell.innerText = stepsOutput[i]['q'+(j-1)]
+          tRow.appendChild(tCell)
+        }
       }
     } else {
       for (let j=1; j<=6; j++){
