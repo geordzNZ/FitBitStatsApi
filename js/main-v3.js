@@ -101,7 +101,9 @@ function displaySteps(data){
         } else {
           tCell.innerText = stepsOutput[i]['q'+(j-1)]
           tRow.appendChild(tCell)
-          if (stepsOutput[i].total>250) { tRow.classList.add("metTarget")}
+          if (i>=1 && i<=17) {
+            if (stepsOutput[i].total>=250) { tCell.classList.add("metTarget")}
+          }
         }
       }
     } else {
@@ -115,7 +117,9 @@ function displaySteps(data){
         } else {
           tCell.innerText = stepsOutput[i].total
           tCell.classList.add("tblCol6")
-          if (stepsOutput[i].total>250) { tCell.classList.add("metTarget")}
+          if (i>=1 && i<=17) {
+            if (stepsOutput[i].total>=250) { tCell.classList.add("metTarget")}
+          }
         }
         tRow.appendChild(tCell)
       }

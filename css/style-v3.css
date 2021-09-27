@@ -99,7 +99,7 @@ table{
 }
 thead {
   background: lightgray;
-  border-bottom: 1px black solid;
+  border: 2px black solid;
 }
 td {
   text-align: center;
@@ -111,14 +111,19 @@ tr:nth-child(7) {
 tr:nth-child(18) {
   border-bottom: 2px black solid;
 }
+tr:nth-last-of-type(1){
+  border-bottom: 2px black solid;
+}
 .tblCol1{
   font-weight: bold;
   background: lightgray;
-  border-right: 1px black solid;
+  border-left: 2px black solid;
+  border-right: 2px black solid;
 }
 .tblCol6 {
   font-weight: bold;
-  border-left: 1px black solid;
+  border-left: 2px black solid;
+  border-right: 2px black solid;
 }
 
 input{
