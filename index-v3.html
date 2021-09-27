@@ -17,58 +17,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Carattere&display=swap" rel="stylesheet">
 	</head>
 	<body>
-    <nav>
+    <header>
       <a href="/index-v1.html">v1</a>
       <a href="/index-v2.html">v2</a>
       <a href="/index-v3.html">v3</a>
-     </nav>
-     <h1>Fitbit stats page v3</h1>
-     <h4>Reformat to provide different ouput, for Web display or copy/paste to Excel</h4>
-     <div>
-      <button id="btnProfile">Profile</button>
-      <button id="btnDevices">Devices</button>
-      <button id="btnSetToday">Today</button>
-    </div>
-    <div id="dates">
-      <div>
-        Output for:
-        Web
-        <label class="toggle">
-          <input id="tglDisplay" type="checkbox">
-          <span class="slider"></span>
-        </label>
-        Excel
-      </div>
-      <div>
-        <button id="btnSetPrevDate"><=</button>
-        <Input type="date" id="inpDate"></Input>
-        <button id="btnSetNextDate">=></button>
+    </header>
+    <h1 title="Reformat to provide different ouput, for Web display or copy/paste to Excel">Fitbit stats page v3</h1>
+    <!-- <h4>Reformat to provide different ouput, for Web display or copy/paste to Excel</h4> -->
+    <div class="pageDiv">
+      <div class="pageLeft">
+        <div>
+          <button id="btnProfile">Profile</button>
+          <button id="btnDevices">Devices</button>
+          <button id="btnSetToday">Today</button>
+        </div>
+        <div>
+          Output for:
+          Web
+          <label class="toggle">
+            <input id="tglDisplay" type="checkbox">
+            <span class="slider"></span>
+          </label>
+          Excel
+        </div>
+        <div id="dates">
+          <button id="btnSetPrevDate"><=</button>
+          <Input type="date" id="inpDate"></Input>
+          <button id="btnSetNextDate">=></button>
+        </div>
       </div>
     </div>
 
-    <div class="stepsHeader">
-      Total Steps:  <span id="stepsTotal" class="stepsTotal"></span> on <span id="stepsDate" class="stepsTotal"></span>
-    </div>
-    <div id="stepsBreakdown">
-      <table id="stepsTable" align="center">
-        <thead>
-          <tr id="hdrWeb">
-            <th width="75px" class="tblCol1">Time</th>
-            <th width="75px">15</th>
-            <th width="75px">30</th>
-            <th width="75px">45</th>
-            <th width="75px">60</th>
-            <th width="75px" class="tblCol6">Total</th>
-          </tr>
-          <tr id="hdrExcel" class="hdrHidden">
-            <th width="75px">15</th>
-            <th width="75px">30</th>
-            <th width="75px">45</th>
-            <th width="75px">60</th>
-          </tr>
-        </thead>
-        <tbody id="stepsTableBody"></tbody>
-      </table>
+    <div class="pageRight">
+      <div class="stepsHeader">
+        Total Steps:  <span id="stepsTotal" class="stepsTotal"></span> on <span id="stepsDate" class="stepsTotal"></span>
+      </div>
+      <div id="stepsBreakdown">
+        <table id="stepsTable" align="center">
+          <thead>
+            <tr id="hdrWeb">
+              <th class="tblCol1">Time</th>
+              <th>15</th>
+              <th>30</th>
+              <th>45</th>
+              <th>60</th>
+              <th class="tblCol6">Total</th>
+            </tr>
+            <tr id="hdrExcel" class="hdrHidden">
+              <th>15</th>
+              <th>30</th>
+              <th>45</th>
+              <th>60</th>
+            </tr>
+          </thead>
+          <tbody id="stepsTableBody"></tbody>
+        </table>
+      </div>
     </div>
 
     <script type="module" src="js/main-v3.js"></script>

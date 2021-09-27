@@ -24,7 +24,17 @@
 body {
   text-align: center;
   font-family: 'Calibri';
+}
 
+.pageDiv{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.pageLeft{
+  border: 1px solid red;
+}
+.pageRight{
+  border: 1px solid yellow;
 }
 
 h1 {
@@ -94,12 +104,15 @@ footer {
 }
 
 table{
-  border: 1px solid black;
+  border: 2px solid black;
   border-collapse:collapse;
 }
 thead {
   background: lightgray;
   border: 2px black solid;
+}
+th{
+  width: 75px;
 }
 td {
   text-align: center;
