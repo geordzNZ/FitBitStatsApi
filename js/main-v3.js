@@ -87,9 +87,12 @@ function displaySteps(data){
   }
 
   let tRow7Steps = [0,0,0,0]
+  let breakLoop = false;
   for (let i=0; i<stepsOutput.length-1; i++){
     let tRow = document.createElement("tr")
+    if (breakLoop) { break }
     if (displayType){
+      if (i===17) (breakLoop = true)
       for (let j=1; j<=4; j++) {
         let tCell = document.createElement("td") 
         if (i<=6){
