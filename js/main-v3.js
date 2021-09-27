@@ -117,11 +117,11 @@ function displaySteps(data){
         } else {
           tCell.innerText = stepsOutput[i].total
           tCell.classList.add("tblCol6")
-          if (i>=1 && i<=17) {
-            if (stepsOutput[i].total>=250) { tCell.classList.add("metTarget")}
-          }
         }
         tRow.appendChild(tCell)
+        if (i>=1 && i<=17) {
+          if (stepsOutput[i].total>=250) { tRow.classList.add("metTarget")}
+        }
       }
     }
     stepsTableBody.appendChild(tRow)

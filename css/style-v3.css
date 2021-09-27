@@ -129,24 +129,15 @@ th{
 }
 td {
   text-align: center;
-  border-bottom: 1px dotted black
+  border-bottom: .25px solid black;
 }
-tr:nth-child(7) {
-  border-bottom: 2px black solid;
-}
-tr:nth-child(18) {
+tr:nth-child(7), tr:nth-child(18) {
   border-bottom: 2px black solid;
 }
 tr:nth-last-of-type(1){
   border-bottom: 2px black solid;
 }
-.tblCol1{
-  font-weight: bold;
-  background: lightgray;
-  border-left: 2px black solid;
-  border-right: 2px black solid;
-}
-.tblCol6 {
+.tblCol1,.tblCol6 {
   font-weight: bold;
   border-left: 2px black solid;
   border-right: 2px black solid;
