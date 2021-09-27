@@ -22,19 +22,27 @@
 /*******************************************/
 
 body {
-  text-align: center;
+  /* text-align: center; */
   font-family: 'Calibri';
 }
 
-.pageDiv{
+#pageDiv{
   display: grid;
   grid-template-columns: 1fr 3fr;
+  column-gap: 2rem;
 }
-.pageLeft{
-  border: 1px solid red;
+#pageLeft{
+  /* border: red 1px solid; */
+  margin-left: 5px;
+  padding-left: 5px;
+  line-height: 1.5em;
+  text-align: center;
 }
-.pageRight{
-  border: 1px solid yellow;
+
+#pageRight{
+  text-align: left;
+  /* border: red 1px solid; */
+
 }
 
 h1 {
@@ -44,6 +52,7 @@ h1 {
   font-family: 'Carattere', cursive;
   text-shadow: 1px 1px 2px darkgreen, 0 0 1em seagreen, 0 0 0.2em green;
   letter-spacing: .25em;
+  text-align: center;
 }
 
 /* h2 {
@@ -78,8 +87,26 @@ footer {
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
-
-.stepsHeader{
+#navLinks{
+  /* text-align: center; */
+  margin-bottom: 5px;
+  border-bottom: dotted 1px green;
+}
+button {
+  height: 27px;
+}
+.bigButton{
+  width: 71px;
+}
+input {
+  width: 150px
+}
+#stepsContainer{
+  /* border: 1px blue solid; */
+  margin-left: 2rem;
+  width: 500px;
+}
+#stepsHeader{
   color: green;
   font-size: 1.5em;
   background: lightgreen;
@@ -158,11 +185,15 @@ input{
   margin: 0px auto;
 }
 
+.tglOptions {
+  /* border: 1px red solid; */
+  margin-left: 35px;
+}
 /* The switch - the box around the slider */
 .toggle {
   position: relative;
   display: inline-block;
-  width: 60px;
+  width: 40px;
 }
 
 /* Hide default HTML checkbox */
@@ -186,10 +217,10 @@ input{
 .slider:before {
   position: absolute;
   content: "";
-  height: 15px;
-  width: 15px;
-  left: 5px;
-  top: 8px;
+  height: 13px;
+  width: 13px;
+  left: 0px;
+  top: 5px;
   background-color: lightgreen;
   border-radius: 5px;
   -webkit-transition: .5s;
@@ -197,9 +228,9 @@ input{
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(35px);
-  -ms-transform: translateX(35px);
-  transform: translateX(35px);
+  -webkit-transform: translateX(28px);
+  -ms-transform: translateX(28px);
+  transform: translateX(28px);
 }
 
 .hdrHidden {
