@@ -28,7 +28,8 @@ body {
 
 #pageDiv{
   display: grid;
-  grid-template-columns: 250px 100%;
+  /* grid-template-columns: 250px 100%; */
+  grid-template-columns: .75fr 1.5fr .75fr;
   column-gap: 2rem;
 }
 
@@ -37,7 +38,9 @@ body {
   padding-left: 5px;
   line-height: 1.5em;
 }
-
+#pageMain{
+  text-align: left;
+}
 #pageRight{
   text-align: left;
 }
