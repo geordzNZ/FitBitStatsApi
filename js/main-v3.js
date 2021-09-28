@@ -28,7 +28,7 @@ function getDevices(){
   })
   .then(response => response.json())
   // .then(json => console.log(json))
-  .then(data => displayInfo(data))
+  .then(json => displayInfo(json))
 }
 
 
@@ -47,8 +47,7 @@ function getSteps(){
 function displayInfo(data){
   let infoDiv = document.querySelector('#info')
   console.log(data)
-  infoDiv.innerHTML = JSON.stringify(data)
-
+  infoDiv.innerHTML = JSON.stringify(data, null, '  ')
 }
 
 
