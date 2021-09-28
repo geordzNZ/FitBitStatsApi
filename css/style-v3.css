@@ -24,6 +24,9 @@
 body {
   text-align: center;
   font-family: 'Calibri';
+  /* background-image: url('https://source.unsplash.com/random?water/1600x900');
+  background-origin: border-box;
+  background-repeat: no-repeat; */
 }
 
 #pageDiv{
