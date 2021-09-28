@@ -28,8 +28,7 @@ body {
 
 #pageDiv{
   display: grid;
-  /* grid-template-columns: 250px 100%; */
-  grid-template-columns: .75fr 1.5fr .75fr;
+  grid-template-columns: 250px 3fr 2fr;
   column-gap: 2rem;
 }
 

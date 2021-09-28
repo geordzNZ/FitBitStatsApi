@@ -17,7 +17,7 @@ function getProfile(){
     headers: {"Authorization": "Bearer " + accessToken}
   })
   .then(response => response.json())
-  .then(json => console.log(json))
+  .then(json => displayInfo(json))
 }
 
 function getDevices(){
@@ -27,13 +27,15 @@ function getDevices(){
     headers: {"Authorization": "Bearer " + accessToken}
   })
   .then(response => response.json())
-  .then(json => console.log(json))
+  // .then(json => console.log(json))
+  .then(data => displayInfo(data))
 }
+
 
 function getSteps(){
   let xDate = document.querySelector('#inpDate').value || 'today'
   let urlFB = 'https://api.fitbit.com/1/user/-/activities/steps/date/' + xDate + '/1d.json'
-
+  
   fetch(urlFB,{
     method: "GET",
     headers: {"Authorization": "Bearer " + accessToken}
@@ -42,6 +44,12 @@ function getSteps(){
   .then(data => displaySteps(data))
 }
 
+function displayInfo(data){
+  let infoDiv = document.querySelector('#info')
+  console.log(data)
+  infoDiv.innerHTML = JSON.stringify(data)
+
+}
 
 
 function displaySteps(data){
