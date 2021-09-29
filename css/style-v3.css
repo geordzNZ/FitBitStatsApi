@@ -86,9 +86,7 @@ footer {
 }
 button {
   height: 27px;
-}
-.bigButton{
-  width: 71px;
+  background: lightgreen;
 }
 input {
   width: 150px
