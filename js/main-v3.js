@@ -197,21 +197,21 @@ function changeTableHeader(){
 // 	}
 // }
 
-var copyBtn = document.querySelector('#btnCopy');
-copyBtn.addEventListener('click', function () {
-  console.log("Hi 1");
-  var urlField = document.querySelector('#testTable');
-  console.log(urlField);
-  // create a Range object
-  var range = document.createRange();  
-  console.log(range);
-  // set the Node to select the "range"
-  range.selectNode(urlField);
-  console.log(range);
-  // add the Range to the set of window selections
-  window.getSelection().addRange(range);
+// var copyBtn = document.querySelector('#btnCopy');
+// copyBtn.addEventListener('click', function () {
+//   console.log("Hi 1");
+//   var theTable = document.querySelector('#stepsTable');
+//   console.log(theTable);
+//   // create a Range object
+//   var range = document.createRange();  
+//   console.log(range);
+//   // set the Node to select the "range"
+//   range.selectNode(theTable);
+//   console.log(range);
+//   // add the Range to the set of window selections
+//   window.getSelection().addRange(range);
    
-  // execute 'copy', can't 'cut' in this case
-  document.execCommand('copy');
-  console.log("Hi 2");
-}, false);
+//   // execute 'copy', can't 'cut' in this case
+//   document.execCommand('copy');
+//   console.log("Hi 2");
+// }, false);
