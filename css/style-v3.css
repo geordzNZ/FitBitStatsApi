@@ -27,7 +27,7 @@ body {
   /* background-image: url('https://source.unsplash.com/random?water/1600x900');
   background-origin: border-box;
   background-repeat: no-repeat; */
-  background: repeating-linear-gradient(25deg,rgba(0,255,0,.25), rgba(0,0,0,.75),rgba(0,255,0,.25) 200px);
+  background: repeating-linear-gradient(25deg,rgba(0,255,0,.25), rgba(0,0,0,.75),rgba(0,255,0,.25) 300px);
   
   height: 100vh;
 }
@@ -81,7 +81,7 @@ footer {
 /*******************************************/
 #navLinks{
   margin-bottom: 5px;
-  border-bottom: dotted 1px green;
+  border-bottom: dotted 1px darkgreen;
 }
 #selections {
   line-height: 2em;
@@ -100,15 +100,17 @@ input {
 }
 #stepsHeader{
   text-align: center;
-  color: green;
+  color: darkgreen;
   font-size: 1.5em;
+  border:black 1px solid;
+  border-bottom: none;
   /* background: lightgreen; */
   background: rgb(144, 238, 144, .5);
   padding: 5px 10px 0 10px;
   border-top-left-radius: .5em;
   border-top-right-radius: .5em;
   margin: 5px auto 0 auto;
-  width: max-content;
+  width: max-content; 
 }
 .stepsTotal {
   font-weight: bold;
@@ -122,6 +124,7 @@ input {
   margin: 0px auto;
   padding: 10px 20px;
   border-radius: 1em;
+  border:black 1px solid;
 }
 
 table{

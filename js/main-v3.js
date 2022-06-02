@@ -79,11 +79,11 @@ function displaySteps(data){
   //Work with data on the page
   stepsTableBody.innerText = ""
   stepsTotal.innerText = data['activities-steps'][0].value
-  stepsDate.innerText = `${stepsDateParts[0] }/${stepsMonthName}/${stepsDateParts[2]} (${stepsDayName})`
+  stepsDate.innerText = `${stepsDateParts[0] }/${stepsMonthName}/${stepsDateParts[2]}(${stepsDayName})`
 
   //v2 process data for table.
   //   1) split into hr's
-  for (let i=0; i<=dataLength; i+=15){
+  for (let i=0; i <= dataLength; i+=15){
     stepsPerHr.push(stepsData.slice(i,i+15))
   }
 
