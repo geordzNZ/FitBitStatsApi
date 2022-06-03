@@ -227,7 +227,7 @@ input:checked + .slider:before {
   border: 1px dashed blue;
 } */
 #info {
-  font-size: .9em;
+  font-size: 1em;
 }
 .leftAlign{
   text-align: left;

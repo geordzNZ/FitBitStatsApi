@@ -53,33 +53,37 @@ function displayInfo(data){
 }
 
 
-function displaySteps(data){
-  console.log(data)
+function displaySteps(data) {
+    console.log(data)
 
-  //Data Variables
-  let stepsData = data['activities-steps-intraday']['dataset']
-  let dataLength = stepsData.length
-  let stepsPerHr = []
-  let step15MinTotals = []
-  let stepsOutput = []
-  let tRow7Steps = [0,0,0,0]
-  let breakLoop = false;
-  let stepsDateParts = [...data['activities-steps'][0].dateTime.split('-').reverse()]
-  let stepsDayName = new Date(data['activities-steps'][0].dateTime).toLocaleDateString('en', {weekday : 'short'} )
-  let stepsMonthName = new Date(data['activities-steps'][0].dateTime).toLocaleDateString('en', {month : 'short'} )
+    //Data Variables
+    let stepsData = data['activities-steps-intraday']['dataset']
+    let stepsDataLastHour = stepsData.slice(-(new Date().getMinutes() + 1))
+    let stepsDataLastHourActuals = stepsDataLastHour.filter(d => d.value>0)
+    let dataLength = stepsData.length
+    let stepsPerHr = []
+    let step15MinTotals = []
+    let stepsOutput = []
+    let tRow7Steps = [0, 0, 0, 0]
+    let breakLoop = false;
+    let stepsDateParts = [...data['activities-steps'][0].dateTime.split('-').reverse()]
+    let stepsDayName = new Date(data['activities-steps'][0].dateTime).toLocaleDateString('en', { weekday: 'short' })
+    let stepsMonthName = new Date(data['activities-steps'][0].dateTime).toLocaleDateString('en', { month: 'short' })
+    
 
-  //HTML Elements
-  let stepsTotal = document.getElementById("stepsTotal")
-  let stepsDate = document.getElementById("stepsDate")
-  let stepsTableBody = document.getElementById("stepsTableBody")
-  let displayType = document.getElementById("tglDisplay").checked
+    //HTML Elements
+    let stepsTotal = document.getElementById("stepsTotal")
+    let stepsDate = document.getElementById("stepsDate")
+    let stepsTableBody = document.getElementById("stepsTableBody")
+    let displayType = document.getElementById("tglDisplay").checked
+    let infoDiv = document.querySelector('#info')
 
 
 
-  //Work with data on the page
-  stepsTableBody.innerText = ""
-  stepsTotal.innerText = data['activities-steps'][0].value
-  stepsDate.innerText = `${stepsDateParts[0] }/${stepsMonthName}/${stepsDateParts[2]}(${stepsDayName})`
+    //Work with data on the page
+    stepsTableBody.innerText = ""
+    stepsTotal.innerText = data['activities-steps'][0].value
+    stepsDate.innerText = `${stepsDateParts[0]}/${stepsMonthName}/${stepsDateParts[2]}(${stepsDayName})`
 
   //v2 process data for table.
   //   1) split into hr's
@@ -141,6 +145,9 @@ function displaySteps(data){
     }
     stepsTableBody.appendChild(tRow)
   }
+  
+    //Display current hour's data
+    infoDiv.innerText = JSON.stringify(stepsDataLastHourActuals).replace(/}\,{/g,'\n').replace(/[\[{}\]"]/g,'')
 }
 
 function dateUpdate(action){
@@ -161,7 +168,7 @@ function dateUpdate(action){
   getSteps()
 }
 
-function changeTableHeader(){
+function changeTableHeader() {
   document.getElementById("stepsTableBody").innerText = ""
   if (document.getElementById("tglDisplay").checked){
     document.getElementById("hdrWeb").classList.add("hdrHidden")
@@ -176,6 +183,7 @@ function changeTableHeader(){
     document.getElementById("fa-web").classList.add("selectedBackground")
     document.getElementById("fa-excel").classList.remove("selectedBackground")
   }
+   document.getElementById("info").innerText = ""
 }
 
 function getRefreshedToken() {
