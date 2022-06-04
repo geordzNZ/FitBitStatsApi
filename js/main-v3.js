@@ -76,11 +76,8 @@ function displaySteps(data) {
     let stepsDate = document.getElementById("stepsDate")
     let stepsTableBody = document.getElementById("stepsTableBody")
     let displayType = document.getElementById("tglDisplay").checked
-    let infoDivTitle = document.querySelector('#infoSpanTitle')
-    let infoDivContent = document.querySelector('#infoSpanContent')
-
-
-
+    let infoTitle = document.querySelector('#infoTitle')
+    let infoContent = document.querySelector('#infoContent')
 
 
     //Work with data on the page
@@ -150,16 +147,26 @@ function displaySteps(data) {
   }
   
     //Display current hour's data
-    let outputCurrentHourSteps = JSON.stringify(stepsDataLastHourActuals)
-        .replace(/}\,{/g, '\n')
-        .replace(/[\[{}\]"]/g, '')
-        .replace(/,value/g, ' -- steps')
-    let outputCurrentHourTotal = stepsDataLastHourActuals.reduce((t,s) => t+=s.value,0)
-    if (stepsDataLastHourActuals.length !== 0) {
-        infoDivTitle.innerText = outputCurrentHourTotal + ' steps so far this hour..'
-        infoDivContent.innerText = outputCurrentHourSteps
+    let curYear = new Date(Date()).getFullYear()
+    let curMonth = new Date(Date()).getMonth()+1
+    let curDay = new Date(Date()).getDate()
+    let curDate = `${curYear}-${curMonth <= 9 ? '0' + curMonth : curMonth}-${curDay <= 9 ? '0' + curDay : curDay}`
+
+    if (document.querySelector('#inpDate').value == curDate) {
+        let outputCurrentHourSteps = JSON.stringify(stepsDataLastHourActuals)
+            .replace(/}\,{/g, '\n')
+            .replace(/[\[{}\]"]/g, '')
+            .replace(/,value/g, ' -- steps')
+        let outputCurrentHourTotal = stepsDataLastHourActuals.reduce((t, s) => t += s.value, 0)
+        if (stepsDataLastHourActuals.length !== 0) {
+            infoTitle.innerText = outputCurrentHourTotal + ' steps so far this hour..'
+            infoContent.innerText = outputCurrentHourSteps
+        } else {
+            infoTitle.innerText = "No steps so far this hour"
+        }
     } else {
-        infoDivTitle.innerText = "No steps so far this hour"
+        infoTitle.innerText = "Only shown for current day"
+        infoContent.innerText = ""
     }
 }
 
@@ -182,7 +189,11 @@ function dateUpdate(action){
 }
 
 function changeTableHeader() {
-  document.getElementById("stepsTableBody").innerText = ""
+    let infoTitle = document.querySelector('#infoTitle')
+    let infoContent = document.querySelector('#infoContent')
+    
+    document.getElementById("stepsTableBody").innerText = ""
+    
   if (document.getElementById("tglDisplay").checked){
     document.getElementById("hdrWeb").classList.add("hdrHidden")
     document.getElementById("hdrExcel").classList.remove("hdrHidden")
@@ -196,7 +207,7 @@ function changeTableHeader() {
     document.getElementById("fa-web").classList.add("selectedBackground")
     document.getElementById("fa-excel").classList.remove("selectedBackground")
   }
-   document.getElementById("info").innerText = ""
+    getSteps()
 }
 
 function getRefreshedToken() {
