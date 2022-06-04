@@ -54,8 +54,7 @@ function displayInfo(data){
 
 
 function displaySteps(data) {
-    console.log(data)
-
+    
     //Data Variables
     let stepsData = data['activities-steps-intraday']['dataset']
     let stepsDataLastHour = stepsData.slice(-(new Date().getMinutes() + 1))
@@ -78,7 +77,14 @@ function displaySteps(data) {
     let displayType = document.getElementById("tglDisplay").checked
     let infoTitle = document.querySelector('#infoTitle')
     let infoContent = document.querySelector('#infoContent')
+    let consoleLogCheck = document.querySelector('#chkConsole')
 
+    
+    console.warn(data['activities-steps'][0])
+    if (consoleLogCheck.checked) {
+        console.table(data['activities-steps-intraday']['dataset'])
+    }
+    
 
     //Work with data on the page
     stepsTableBody.innerText = ""
