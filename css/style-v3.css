@@ -227,7 +227,21 @@ input:checked + .slider:before {
   border: 1px dashed blue;
 } */
 #info {
-  font-size: 1em;
+  background-color: lightgreen;
+  border: 1px solid black;
+  width: max-content;
+  padding: 0 20px;
+  border-radius: 5px;
+}
+#infoSpanTitle {
+    font-weight: bold;
+    padding-bottom: 0;
+    margin-bottom: 5px;
+}
+#infoSpanContent {
+    margin-top: 0;
+    padding-top: 0;
+    padding-left: 10px;
 }
 .leftAlign{
   text-align: left;

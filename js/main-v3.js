@@ -76,7 +76,10 @@ function displaySteps(data) {
     let stepsDate = document.getElementById("stepsDate")
     let stepsTableBody = document.getElementById("stepsTableBody")
     let displayType = document.getElementById("tglDisplay").checked
-    let infoDiv = document.querySelector('#info')
+    let infoDivTitle = document.querySelector('#infoSpanTitle')
+    let infoDivContent = document.querySelector('#infoSpanContent')
+
+
 
 
 
@@ -147,7 +150,17 @@ function displaySteps(data) {
   }
   
     //Display current hour's data
-    infoDiv.innerText = JSON.stringify(stepsDataLastHourActuals).replace(/}\,{/g,'\n').replace(/[\[{}\]"]/g,'')
+    let outputCurrentHourSteps = JSON.stringify(stepsDataLastHourActuals)
+        .replace(/}\,{/g, '\n')
+        .replace(/[\[{}\]"]/g, '')
+        .replace(/,value/g, ' -- steps')
+    let outputCurrentHourTotal = stepsDataLastHourActuals.reduce((t,s) => t+=s.value,0)
+    if (stepsDataLastHourActuals.length !== 0) {
+        infoDivTitle.innerText = outputCurrentHourTotal + ' steps so far this hour..'
+        infoDivContent.innerText = outputCurrentHourSteps
+    } else {
+        infoDivTitle.innerText = "No steps so far this hour"
+    }
 }
 
 function dateUpdate(action){
