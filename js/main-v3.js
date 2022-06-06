@@ -153,10 +153,12 @@ function displaySteps(data) {
   }
   
     //Display current hour's data
-    let curYear = new Date(Date()).getFullYear()
-    let curMonth = new Date(Date()).getMonth()+1
-    let curDay = new Date(Date()).getDate()
+    let curD = new Date() 
+    let curYear = curD.getFullYear()
+    let curMonth = curD.getMonth()+1
+    let curDay = curD.getDate()
     let curDate = `${curYear}-${curMonth <= 9 ? '0' + curMonth : curMonth}-${curDay <= 9 ? '0' + curDay : curDay}`
+    
 
     if (document.querySelector('#inpDate').value == curDate) {
         let outputCurrentHourSteps = JSON.stringify(stepsDataLastHourActuals)
@@ -165,10 +167,12 @@ function displaySteps(data) {
             .replace(/,value/g, ' -- steps')
         let outputCurrentHourTotal = stepsDataLastHourActuals.reduce((t, s) => t += s.value, 0)
         if (stepsDataLastHourActuals.length !== 0) {
-            infoTitle.innerText = outputCurrentHourTotal + ' steps so far this hour..'
+            infoTitle.innerText = `${outputCurrentHourTotal} steps so far this hour ... (${curD.getHours()}-${curD.getHours()+1})`
+                
             infoContent.innerText = outputCurrentHourSteps
         } else {
-            infoTitle.innerText = "No steps so far this hour"
+            infoTitle.innerText = `No steps so far this hour ... (${curD.getHours()}-${curD.getHours()+1})`
+            infoContent.innerText = ""
         }
     } else {
         infoTitle.innerText = "Only shown for current day"
