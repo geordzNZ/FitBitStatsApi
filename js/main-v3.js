@@ -82,7 +82,8 @@ function displaySteps(data) {
     
     console.warn(data['activities-steps'][0])
     if (consoleLogCheck.checked) {
-        console.table(data['activities-steps-intraday']['dataset'])
+         console.log('Hello')
+        console.table(data['activities-steps-intraday']['dataset'].filter(v => v.value > 0))
     }
     
 
